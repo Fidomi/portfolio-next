@@ -13,7 +13,7 @@ const About = () => {
                             I'm Sidonie, front-end developer from France.
                         </h1>
 
-                        <div className="mt-4 text-gray-800">
+                        <div className="mt-4 text-gray-800 font-body text-lg">
                             <p>
                                 I like to code things from scratch as much as
                                 using React or Next. I'm a quick learner and
@@ -26,8 +26,8 @@ const About = () => {
                                 Languages : TypeScript / JavaScript, HTML, CSS,
                                 Less, MySQL
                                 <br />
-                                Dev Tools : React, Next, Node, Gulp, Git,
-                                Bootstrap, Tailwind
+                                Dev Tools : React, Next, Node, Express, MongoDB,
+                                Gulp, Git, Bootstrap, Tailwind
                                 <br />
                                 Design Tools : Figma, Photoshop, Illustrator,
                                 After Effects
