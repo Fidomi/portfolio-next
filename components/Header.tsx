@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-function Header() {
+function Header({ bgColor }: { bgColor: string }) {
     return (
-        <div className="sticky top-0 w-full px-2 py-2">
+        <div className={`flex-1 w-full px-2 py-3 bg-${bgColor} max-h-20`}>
             <header className="flex flex-row justify-between px-5 items-center ">
                 <Link href="/">
                     <a className="text-4xl">SIDONIE</a>

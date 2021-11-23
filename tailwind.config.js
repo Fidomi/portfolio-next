@@ -39,6 +39,9 @@ module.exports = {
             "6xl": "4rem",
             "7xl": "5rem",
         },
+        container: {
+            center: true,
+        },
         extend: {
             spacing: {
                 128: "32rem",

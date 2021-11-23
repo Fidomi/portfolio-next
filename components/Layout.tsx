@@ -1,15 +1,23 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { prependOnceListener } from "process";
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export const Layout = ({
+    children,
+    curColor,
+}: {
+    children: React.ReactNode;
+    curColor: string;
+}) => {
     return (
-        <div>
-            <Header />
-            <main className="max-w-4xl mx-auto mt-16 antialiased">
+        <div
+            className={`bg-${curColor} flex flex-col min-h-screen justify-center items-center`}>
+            <Header bgColor={curColor} />
+            <main className="flex-4 flex-grow w-full mx-auto antialiased h-auto flex flex-col justify-center items-center">
                 {children}
             </main>
-            <Footer />
+            <Footer bgColor={curColor} />
         </div>
     );
 };

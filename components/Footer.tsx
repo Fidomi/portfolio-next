@@ -1,6 +1,6 @@
-const Footer = () => {
+const Footer = ({ bgColor }: { bgColor: string }) => {
     return (
-        <div className="fixed bottom-0 w-full px-2 py-2 pb-5">
+        <div className={`flex-1 w-full px-2 py-5 bg-${bgColor} max-h-36`}>
             <footer className="flex flex-row justify-between px-5 items-end text-base font-body">
                 <div className="flex flex-col">
                     <p>FRONT END DEVELOPER</p>
