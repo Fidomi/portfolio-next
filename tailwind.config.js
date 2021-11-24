@@ -16,6 +16,7 @@ module.exports = {
             "2xl": "1536px",
         },
         colors: {
+            blue: colors.blue,
             gray: colors.gray,
             yellow: colors.yellow,
             black: colors.black,
@@ -56,7 +57,7 @@ module.exports = {
                 map: "600px",
             },
             height: {
-                map: "450px",
+                map: "510px",
             },
         },
         flex: {

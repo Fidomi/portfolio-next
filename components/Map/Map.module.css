@@ -3,9 +3,10 @@
     grid-template-areas:
         "dev dev line vfx"
         "a b line e"
-        "c d line e";
+        "c d line e"
+        "title title title title";
     grid-template-columns: 200px 200px 20px auto;
-    grid-template-rows: 40px 200px 200px;
+    grid-template-rows: 40px 200px 200px 50px;
     gap: 5px;
 }
 
@@ -21,19 +22,23 @@
     margin: auto 5px;
 }
 
+.title {
+    grid-area: title;
+}
+
 .line {
     grid-area: line;
     background-color: black;
     margin: 0 8px;
 }
 
-.a {
+.ailleurs {
     grid-area: a;
     background: no-repeat center / 100% url("../../public/img/demo_2018_Y.png");
     border-radius: 50%;
 }
 
-.b {
+.clairenou {
     grid-area: b;
     background: no-repeat center / 100%
         url("../../public/img/my_garden_map_Y.png");
@@ -44,13 +49,13 @@
     background-color: black;
 }
 
-.d {
+.wheel {
     grid-area: d;
     background: no-repeat center / 100% url("../../public/img/amap_Y.png");
     border-radius: 50%;
 }
 
-.e {
+.vfxSection {
     grid-area: e;
     display: grid;
     grid-template-rows: repeat(5, auto);
