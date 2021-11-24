@@ -9,9 +9,9 @@ const About = () => {
         <Layout curColor={curColor}>
             <div
                 className={`container px-2 flex flex-column justify-center bg-${curColor}`}>
-                <div className="lg:px-4">
+                <div className="lg:px-4 max-w-screen-lg">
                     <div className="flex flex-row justify-between">
-                        <h1 className="text-2xl font-bold text-gray-900 lg:text-4xl">
+                        <h1 className="text-2xl font-medium text-black lg:text-4xl">
                             Hi there!
                             <br />
                             I'm Sidonie, front-end developer from France.

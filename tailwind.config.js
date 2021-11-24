@@ -9,20 +9,22 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         screens: {
-            sm: "480px",
+            sm: "640px",
             md: "768px",
-            lg: "976px",
-            xl: "1440px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1536px",
         },
         colors: {
             gray: colors.gray,
             yellow: colors.yellow,
             black: colors.black,
             green: colors.green,
+            white: colors.white,
         },
         fontFamily: {
             sans: ["Oswald", "sans-serif"],
-            serif: ["Merriweather", "serif"],
+            serif: ["ui - serif", "Georgia", "Cambria", "serif"],
             body: ["Dosis", "sans"],
         },
         fontSize: {
@@ -50,6 +52,23 @@ module.exports = {
             borderRadius: {
                 "4xl": "2rem",
             },
+            width: {
+                map: "600px",
+            },
+            height: {
+                map: "450px",
+            },
+        },
+        flex: {
+            1: "1 1 100%",
+            auto: "1 1 auto",
+            initial: "0 1 auto",
+            inherit: "inherit",
+            none: "none",
+            2: "2 2 0%",
+            100: "1 1 100%",
+            50: "1 1 50%",
+            25: "1 1 25%",
         },
     },
     variants: {

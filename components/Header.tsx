@@ -8,7 +8,7 @@ function Header({ bgColor }: { bgColor: string }) {
                     <a className="text-4xl">SIDONIE</a>
                 </Link>
                 <Link href="/about">
-                    <a className="text-base font-body">ABOUT</a>
+                    <a className="text-lg font-body lg:text-2xl">ABOUT</a>
                 </Link>
             </header>
         </div>
