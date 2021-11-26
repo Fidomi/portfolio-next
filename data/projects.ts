@@ -5,7 +5,7 @@ import seat from "../public/img/seat_Y.png";
 import amap from "../public/img/amap_Y.png";
 import walkcycle from "../public/img/walk_cycle_Y.png";
 
-type Project = {
+export type Project = {
     dev: boolean;
     id: number;
     title: string;

@@ -1,5 +1,5 @@
 import styles from "./Map.module.css";
-import { PROJECTS } from "../../data/projects";
+import { PROJECTS, Project } from "../../data/projects";
 import React, { useState, useContext } from "react";
 import { ShowedProjectContext } from "../../utils/context";
 import Link from "next/link";
@@ -8,6 +8,7 @@ export default function Map() {
     const { project, changeProject } = useContext(ShowedProjectContext);
     const [title, setTitle] = useState("");
     const [subtitle, setSubTitle] = useState("");
+
     function screenTitle(event: React.SyntheticEvent): void {
         event.preventDefault();
         const newTitle = (event.target as HTMLElement).getAttribute("title");
@@ -17,15 +18,18 @@ export default function Map() {
         const newSubTitle = (event.target as HTMLElement).getAttribute(
             "data-subtitle"
         ) as string;
+        const newProject = PROJECTS.find(
+            (ele) => ele.name === newName
+        ) as Project;
         if (newTitle) {
-            console.log(newTitle);
             setTitle(newTitle);
             setSubTitle(newSubTitle);
             if (changeProject !== undefined) {
-                changeProject(newName);
+                changeProject(newProject);
             }
         }
     }
+
     return (
         <div className="container">
             <div
@@ -40,7 +44,7 @@ export default function Map() {
                     return project.dev ? (
                         <Link href="/projects" passHref>
                             <a
-                                key={index}
+                                key={project.id.toString()}
                                 title={project.title}
                                 data-subtitle={project.subtitle}
                                 data-name={project.name}
@@ -62,7 +66,7 @@ export default function Map() {
                         ) : (
                             <Link href="/projects" passHref>
                                 <a
-                                    key={index}
+                                    key={project.id.toString()}
                                     title={project.title}
                                     data-subtitle={project.subtitle}
                                     data-name={project.name}

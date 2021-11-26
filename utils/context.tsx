@@ -1,18 +1,17 @@
 import React from "react";
-import { PROJECTS } from "../data/projects";
+import { PROJECTS, Project } from "../data/projects";
 
 // Handle Showed Project on the Project Page
 type ProjectContextType = {
-    project: string;
-    changeProject?: (value: string) => void;
+    project: Project;
+    changeProject?: (value: Project) => void;
 };
 
 let defaultProject = PROJECTS.find((ele) => ele.dev === true);
-let defaultProjectName =
-    defaultProject === undefined ? "ailleurs" : defaultProject.name;
+defaultProject = defaultProject === undefined ? PROJECTS[6] : defaultProject;
 
 export const ShowedProjectContext = React.createContext<ProjectContextType>({
-    project: defaultProjectName,
+    project: defaultProject,
 });
 
 export const ShowedProjectProvider = ({
@@ -20,12 +19,11 @@ export const ShowedProjectProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [currentProject, setCurrentProject] =
-        React.useState(defaultProjectName);
-    const changeProject = (newProject: string) => {
+    const [currentProject, setCurrentProject] = React.useState(defaultProject);
+    const changeProject = (newProject: Project) => {
         setCurrentProject(newProject);
     };
-    const project = currentProject;
+    const project = currentProject as Project;
 
     return (
         <ShowedProjectContext.Provider value={{ project, changeProject }}>
