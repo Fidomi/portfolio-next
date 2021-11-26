@@ -2,13 +2,16 @@ import React from "react";
 import { Layout } from "../../components/Layout";
 import styles from "./Projects.module.scss";
 import { ShowedProjectContext } from "../../utils/context";
-import { classNames } from "../../utils/classNames";
-import Link from "next/link";
+import VideoProject, { VideoProjectInfo } from "../../components/VideoProject";
+import DevProject from "../../components/DevProject";
+import { PROJECTS } from "../../data/projects";
+// import { classNames } from "../../utils/classNames";
+// import Link from "next/link";
 
 type ProjectColor = [number, string, number];
 const PROJECTS_COLORS: ProjectColor[] = [
-    [1, "rosado", 600],
-    [2, "verdeAzulado", 400],
+    [1, "rosado", 800],
+    [2, "blush", 600],
     [3, "olive", 400],
     [4, "asparagus", 400],
     [5, "seagreen", 400],
@@ -20,9 +23,28 @@ const PROJECTS_COLORS: ProjectColor[] = [
 
 export default function Project() {
     const { project, changeProject } = React.useContext(ShowedProjectContext);
+
     const curColor: string = `${PROJECTS_COLORS[project.id - 1][1]}-${
         PROJECTS_COLORS[project.id - 1][2]
     }`;
+
+    const prevProject = () => {
+        const curIndex = project.id - 1;
+        if (curIndex == 0) {
+            changeProject(PROJECTS[8]);
+        } else {
+            changeProject(PROJECTS[curIndex - 1]);
+        }
+    };
+
+    const nextProject = () => {
+        const curIndex = project.id - 1;
+        if (curIndex === 8) {
+            changeProject(PROJECTS[0]);
+        } else {
+            changeProject(PROJECTS[curIndex + 1]);
+        }
+    };
 
     return (
         <Layout curColor={curColor}>
@@ -31,28 +53,33 @@ export default function Project() {
                     className={`${styles.project_title} text-4xl md:text-5xl lg:text-6xl font-sans uppercase`}>
                     {project.title}
                 </div>
-                <div
-                    className={`${styles.buttonLeft} bg-${curColor} hover:bg-${
+                <button
+                    onClick={prevProject}
+                    className={`${styles.buttonLeft} bg-${
                         PROJECTS_COLORS[project.id - 1][1]
-                    }-700 flex flex-col justify-center items-center justify-self-start place-self-center`}>
+                    }-700 hover:bg-${curColor} flex flex-col justify-center items-center justify-self-start place-self-center`}>
                     <div
-                        className={`invisible md:visible font-body md:text-base lg:text-lg`}>
+                        className={`invisible font-body md:text-base lg:text-lg`}>
                         PREV
                     </div>
-                </div>
-                <div
-                    className={`${styles.buttonRight} bg-${curColor} hover:bg-${
+                </button>
+                <button
+                    onClick={nextProject}
+                    className={`${styles.buttonRight} bg-${
                         PROJECTS_COLORS[project.id - 1][1]
-                    }-700 text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
+                    }-700 hover:bg-${curColor} text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
                     <div
-                        className={`invisible font-body md:visible md:text-base lg:text-lg`}>
+                        className={`invisible font-body md:text-base lg:text-lg`}>
                         NEXT
                     </div>
+                </button>
+                <div className={`${styles.project} w-full h-full mt-3`}>
+                    {project.dev ? (
+                        <DevProject project={project} color={curColor} />
+                    ) : (
+                        <VideoProject project={project} color={curColor} />
+                    )}
                 </div>
-                <div className={`${styles.d}`}>DDDDDDDD</div>
-                <div className={`${styles.e}`}>EEEEEEEE</div>
-                <div className={`${styles.f}`}>FFFFFFFFF</div>
-                <div className={`${styles.g}`}>GGGGGGGGGGGG</div>
             </div>
         </Layout>
     );
