@@ -8,23 +8,26 @@ const About = () => {
     return (
         <Layout curColor={curColor}>
             <div
-                className={`container px-2 flex flex-column justify-center bg-${curColor}`}>
+                className={`container max-w-4xl px-2 flex flex-column justify-center bg-${curColor}`}>
                 <div className="lg:px-4 max-w-screen-lg">
-                    <div className="flex flex-row justify-between">
-                        <h1 className="text-2xl font-medium text-black lg:text-4xl">
+                    <div className="flex flex-col md:flex-row md:justify-between">
+                        <h1 className="text-base order-2 md:order-1 font-medium text-black md:text-2xl lg:text-4xl">
                             Hi there!
                             <br />
                             I'm Sidonie, front-end developer from France.
                         </h1>
-                        <Image
-                            src={profilePic}
-                            alt="Picture of the auhtor"
-                            width={130}
-                            height={120}
-                        />
+                        <div className="order-1 self-end md:order-last">
+                            <Image
+                                layout="fixed"
+                                src={profilePic}
+                                alt="Picture of the auhtor"
+                                width={130}
+                                height={120}
+                            />
+                        </div>
                     </div>
 
-                    <div className="mt-4 text-gray-800 font-body text-lg">
+                    <div className="mt-4 text-gray-800 font-body text-sm md:text-lg">
                         <p>
                             I like to code things from scratch as much as using
                             React or Next. I'm a quick learner and adapt really

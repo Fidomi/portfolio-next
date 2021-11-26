@@ -1,0 +1,93 @@
+$size: 2rem;
+
+.projects_container {
+    display: grid;
+    height: 65vh;
+    grid-template-areas:
+        ". b b b ."
+        "a d e f c"
+        ". g g g .";
+    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    grid-template-rows: 6rem 50% 1fr;
+    gap: 5px;
+}
+
+.project_title {
+    grid-area: b;
+    text-align: center;
+    margin: auto 5px;
+}
+
+.buttonLeft {
+    grid-area: a;
+    height: $size * 2;
+    width: $size;
+    border-bottom-right-radius: $size * 2;
+    border-top-right-radius: $size * 2;
+    border: solid black 2px;
+    border-left: none;
+}
+
+.buttonRight {
+    grid-area: c;
+    height: $size * 2;
+    width: $size;
+    border-bottom-left-radius: $size * 2;
+    border-top-left-radius: $size * 2;
+    border: solid black 2px;
+    border-right: none;
+}
+
+.d {
+    grid-area: d;
+    background-color: #ffa08c;
+}
+
+.e {
+    grid-area: e;
+    background-color: #ffff64;
+}
+
+.f {
+    grid-area: f;
+    background-color: #8cffa0;
+}
+
+.g {
+    grid-area: g;
+    background-color: #8ca0ff;
+}
+
+@media (min-width: 768px) {
+    .buttonLeft {
+        height: $size * 4;
+        width: $size * 2;
+        border-bottom-right-radius: $size * 4;
+        border-top-right-radius: $size * 4;
+    }
+
+    .buttonRight {
+        height: $size * 4;
+        width: $size * 2;
+        border-bottom-left-radius: $size * 4;
+        border-top-left-radius: $size * 4;
+    }
+}
+
+@media (min-width: 1280px) {
+    .buttonLeft {
+        height: $size * 8;
+        width: $size * 4;
+        border-bottom-right-radius: $size * 8;
+        border-top-right-radius: $size * 8;
+        margin-right: 0.5rem;
+    }
+
+    .buttonRight {
+        height: $size * 8;
+        width: $size * 4;
+        border-bottom-left-radius: $size * 8;
+        border-top-left-radius: $size * 8;
+        margin-left: 0.5rem;
+    }
+}
