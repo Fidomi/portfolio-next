@@ -42,9 +42,11 @@ export default function Map() {
                 <div className={`${styles.vfx} text-3xl`}>VFX/MOTION</div>
                 {PROJECTS.map((project, index) => {
                     return project.dev ? (
-                        <Link href="/projects" passHref>
+                        <Link
+                            href="/projects"
+                            key={project.id.toString()}
+                            passHref>
                             <a
-                                key={project.id.toString()}
                                 title={project.title}
                                 data-subtitle={project.subtitle}
                                 data-name={project.name}
@@ -64,9 +66,11 @@ export default function Map() {
                         return project.dev ? (
                             ""
                         ) : (
-                            <Link href="/projects" passHref>
+                            <Link
+                                href="/projects"
+                                key={project.id.toString()}
+                                passHref>
                                 <a
-                                    key={project.id.toString()}
                                     title={project.title}
                                     data-subtitle={project.subtitle}
                                     data-name={project.name}
