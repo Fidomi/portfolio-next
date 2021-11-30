@@ -2,13 +2,13 @@ $size: 2rem;
 
 .projects_container {
     display: grid;
-    height: 65vh;
+    height: auto;
     grid-template-areas:
         ". b b b ."
-        "a d e f c"
-        ". g g g .";
+        "a d d d c"
+        "a d d d c";
     grid-template-columns: 10% 1fr 1fr 1fr 10%;
-    grid-template-rows: 6rem 50% 1fr;
+    grid-template-rows: auto 50% 1fr;
     gap: 5px;
 }
 
@@ -38,27 +38,16 @@ $size: 2rem;
     border-right: none;
 }
 
-.d {
+.project {
     grid-area: d;
-    background-color: #ffa08c;
-}
-
-.e {
-    grid-area: e;
-    background-color: #ffff64;
-}
-
-.f {
-    grid-area: f;
-    background-color: #8cffa0;
-}
-
-.g {
-    grid-area: g;
-    background-color: #8ca0ff;
+    overflow-y: hidden scroll;
 }
 
 @media (min-width: 768px) {
+    .project {
+        overflow: visible;
+    }
+
     .buttonLeft {
         height: $size * 4;
         width: $size * 2;

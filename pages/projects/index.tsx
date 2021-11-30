@@ -2,27 +2,17 @@ import React from "react";
 import { Layout } from "../../components/Layout";
 import styles from "./Projects.module.scss";
 import { ShowedProjectContext } from "../../utils/context";
-import VideoProject, { VideoProjectInfo } from "../../components/VideoProject";
-import DevProject from "../../components/DevProject";
-import { PROJECTS } from "../../data/projects";
-// import { classNames } from "../../utils/classNames";
-// import Link from "next/link";
-
-type ProjectColor = [number, string, number];
-const PROJECTS_COLORS: ProjectColor[] = [
-    [1, "rosado", 800],
-    [2, "blush", 600],
-    [3, "olive", 400],
-    [4, "asparagus", 400],
-    [5, "seagreen", 400],
-    [6, "pine", 400],
-    [7, "steel", 400],
-    [8, "chocolate", 400],
-    [9, "orchid", 400],
-];
+import { LanguageContext } from "../../utils/languageContext";
+import VideoProject, {
+    VideoProjectInfo,
+} from "../../components/VideoProject/VideoProject";
+import DevProject from "../../components/DevProject/DevProject";
+import { PROJECTS_EN, PROJECTS_FR, PROJECTS_COLORS } from "../../data/projects";
 
 export default function Project() {
     const { project, changeProject } = React.useContext(ShowedProjectContext);
+    const { language, changeLanguage } = React.useContext(LanguageContext);
+    let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
     const curColor: string = `${PROJECTS_COLORS[project.id - 1][1]}-${
         PROJECTS_COLORS[project.id - 1][2]
@@ -48,9 +38,9 @@ export default function Project() {
 
     return (
         <Layout curColor={curColor}>
-            <div className={`${styles.projects_container} w-full `}>
+            <div className={`${styles.projects_container} w-full`}>
                 <div
-                    className={`${styles.project_title} text-4xl md:text-5xl lg:text-6xl font-sans uppercase`}>
+                    className={`${styles.project_title} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans uppercase`}>
                     {project.title}
                 </div>
                 <button
@@ -75,9 +65,17 @@ export default function Project() {
                 </button>
                 <div className={`${styles.project} w-full h-full mt-3`}>
                     {project.dev ? (
-                        <DevProject project={project} color={curColor} />
+                        <DevProject
+                            project={project}
+                            color={curColor}
+                            key={`devproject_${project.name}`}
+                        />
                     ) : (
-                        <VideoProject project={project} color={curColor} />
+                        <VideoProject
+                            project={project}
+                            color={curColor}
+                            key={`videoproject_${project.name}`}
+                        />
                     )}
                 </div>
             </div>

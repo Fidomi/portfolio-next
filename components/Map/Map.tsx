@@ -1,13 +1,16 @@
-import styles from "./Map.module.css";
-import { PROJECTS, Project } from "../../data/projects";
+import styles from "./Map.module.scss";
+import { PROJECTS_EN, PROJECTS_FR, Project } from "../../data/projects";
 import React, { useState, useContext } from "react";
 import { ShowedProjectContext } from "../../utils/context";
 import Link from "next/link";
+import { LanguageContext } from "../../utils/languageContext";
 
 export default function Map() {
     const { project, changeProject } = useContext(ShowedProjectContext);
     const [title, setTitle] = useState("");
     const [subtitle, setSubTitle] = useState("");
+    const { language, changeLanguage } = React.useContext(LanguageContext);
+    let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
     function screenTitle(event: React.SyntheticEvent): void {
         event.preventDefault();
@@ -37,8 +40,8 @@ export default function Map() {
                     setTitle("");
                     setSubTitle("");
                 }}
-                className={`container w-map h-map ${styles.map_container} `}>
-                <div className={`${styles.dev} text-3xl`}>DEV</div>
+                className={`container md:w-map md:h-map ${styles.map_container} mx-auto justify-center`}>
+                <div className={`${styles.dev} text-3xl mb-5`}>DEV</div>
                 <div className={`${styles.vfx} text-3xl`}>VFX/MOTION</div>
                 {PROJECTS.map((project, index) => {
                     return project.dev ? (
@@ -60,7 +63,7 @@ export default function Map() {
                 <div
                     className={styles.c}
                     onMouseEnter={() => setTitle("")}></div>
-                <div className={styles.line}></div>
+                <div className={`${styles.line}`}></div>
                 <div className={styles.vfxSection}>
                     {PROJECTS.map((project, index) => {
                         return project.dev ? (

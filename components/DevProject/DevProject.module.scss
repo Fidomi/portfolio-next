@@ -1,0 +1,48 @@
+$size: 100%;
+
+.project_container {
+    display: grid;
+    grid-template-areas:
+        "a a a"
+        // "b b b"
+        // "c c c"
+        "d d d"
+        "e e e";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(3fr, 8fr) 1fr 2fr;
+    gap: 5px;
+}
+
+.title {
+    grid-area: d;
+}
+
+.img1 {
+    margin: 0 auto;
+    grid-area: a;
+    width: 100%;
+    max-width: 960px;
+}
+
+.description {
+    grid-area: e;
+}
+
+@media (min-width: 768px) {
+    .project_container {
+        display: grid;
+        grid-template-areas:
+            "a a a"
+            "d d d"
+            "e e e";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr 2fr;
+    }
+
+    .img1 {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1280px) {
+}

@@ -8,7 +8,7 @@ const About = () => {
     return (
         <Layout curColor={curColor}>
             <div
-                className={`container max-w-4xl px-2 flex flex-column justify-center bg-${curColor}`}>
+                className={`container max-w-xl lg:max-w-4xl px-4 flex flex-column justify-center bg-${curColor}`}>
                 <div className="lg:px-4 max-w-screen-lg">
                     <div className="flex flex-col md:flex-row md:justify-between">
                         <h1 className="text-base order-2 md:order-1 font-medium text-black md:text-2xl lg:text-4xl">
@@ -38,13 +38,20 @@ const About = () => {
                         </p>
                         <p className="mt-2">
                             Languages : TypeScript / JavaScript, HTML, CSS,
-                            Less, MySQL
+                            Less, MySQL, Pug, Twig, Less
                             <br />
                             Dev Tools : React, Next, Node, Express, MongoDB,
                             Gulp, Git, Bootstrap, Tailwind
                             <br />
-                            Design Tools : Figma, Photoshop, Illustrator, After
-                            Effects
+                            Design Tools : Figma, Photoshop, Illustrator
+                            <br />
+                            VFX Tools : Nuke, After Effects, Unreal Engine 4
+                            (lighting/shading), Blender (basics)
+                        </p>
+                        <p className="mt-2 font-bold">
+                            0033 + (0)663915267
+                            <br />
+                            sidonie.moulart@gmail.com
                         </p>
                     </div>
                 </div>
