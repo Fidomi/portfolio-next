@@ -28,10 +28,8 @@ const DevProject = (props: ProjectInfo) => {
                 <div className="flex flex-row justify-around">
                     {props.project.preview && (
                         <button
-                            className={`bg-${
-                                PROJECTS_COLORS[props.project.id - 1][1]
-                            }-700 hover:bg-${props.color}
-                     text-white text-xs py-1 px-2  m-1 rounded-full`}>
+                            className={`bg-black hover:bg-${props.color}
+                     text-white text-xs py-1 px-2  m-1 rounded-full md:text-base md:py-2 md:px-4`}>
                             {language === "EN"
                                 ? "VISIT PROJECT"
                                 : "VOIR LE PROJET"}
@@ -39,10 +37,8 @@ const DevProject = (props: ProjectInfo) => {
                     )}
                     {props.project.code && (
                         <button
-                            className={`bg-${
-                                PROJECTS_COLORS[props.project.id - 1][1]
-                            }-700 hover:bg-${props.color}
-                     text-white text-xs py-1 px-2 m-1 rounded-full`}>
+                            className={`bg-black hover:bg-${props.color} hover:border-solid hover:border-4 hover:border-black
+                     text-white text-xs py-1 px-2 m-1 rounded-full md:text-base md:py-2 md:px-4`}>
                             {language === "EN"
                                 ? "VIEW CODE ON GITHUB"
                                 : "VOIR LE CODE"}
@@ -73,9 +69,15 @@ const DevProject = (props: ProjectInfo) => {
 
             <div className={`${styles.technologies}`}>
                 <div className="font-bold mt-4">TECHNOLOGIES</div>
-                {(props.project.technologies as string[]).map((ele, index) => (
-                    <p key={`str2-${props.project.name}-${index}`}>- {ele}</p>
-                ))}
+                <div className="md:flex">
+                    {(props.project.technologies as string[]).map(
+                        (ele, index) => (
+                            <p key={`str2-${props.project.name}-${index}`}>
+                                {` - ${ele} `}
+                            </p>
+                        )
+                    )}
+                </div>
             </div>
         </div>
     );

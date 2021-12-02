@@ -44,8 +44,15 @@ $size: 2rem;
 }
 
 @media (min-width: 768px) {
+    .projects_container {
+        grid-template-rows: 10% auto auto;
+    }
+
     .project {
-        overflow: visible;
+        overflow: hidden;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 1.5rem;
     }
 
     .buttonLeft {

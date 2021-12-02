@@ -1,9 +1,10 @@
+@use "sass:math";
 $size: 100vw;
 
 .map_container {
     display: grid;
-    grid-template-columns: $size/2.5 $size/2.5;
-    grid-template-rows: 2.25em $size/2.5 $size/2.5 2em 4em 2em;
+    grid-template-columns: math.div($size, 2.5) math.div($size, 2.5);
+    grid-template-rows: 2.25em math.div($size, 2.5) math.div($size, 2.5) 2em 4em 2em;
     grid-template-areas:
         ". dev"
         "a b"

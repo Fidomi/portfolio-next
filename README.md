@@ -12,9 +12,6 @@ It wil show my works as a front-end developer and my old works as a compositing 
 
 # Still to do
 
--   Navigation
--   Footer
--   Styling
--   Component video reader
+-   Add React Spring : scroll with touch events
 -   Tests
 -   ...

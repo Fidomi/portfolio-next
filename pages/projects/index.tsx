@@ -6,7 +6,6 @@ import { LanguageContext } from "../../utils/languageContext";
 import VideoProject from "../../components/VideoProject/VideoProject";
 import DevProject from "../../components/DevProject/DevProject";
 import { PROJECTS_EN, PROJECTS_FR, PROJECTS_COLORS } from "../../data/projects";
-import { scrollElement } from "../../utils/scrollElement";
 
 export default function Project() {
     const { project, changeProject } = React.useContext(ShowedProjectContext);
@@ -36,23 +35,41 @@ export default function Project() {
     };
 
     let last_known_scroll_position = 0;
+    let elementToScrollRef: HTMLElement | null;
 
-    const scrollProject = (e: React.WheelEvent) => {
-        console.log("scrolling");
-        const elementToScroll = document.querySelector(".projectToScroll");
-        if (typeof elementToScroll !== null) {
-            var delta = e.deltaY;
-            if (delta < 0) {
+    const scrollMouseHandler = (e: React.WheelEvent) => {
+        if (elementToScrollRef instanceof HTMLElement) {
+            let isBottom =
+                elementToScrollRef?.scrollHeight -
+                    elementToScrollRef?.scrollTop ===
+                elementToScrollRef?.clientHeight;
+            let isTop = elementToScrollRef.scrollTop === 0;
+            if (!isBottom && !isTop) {
                 last_known_scroll_position += e.deltaY;
+                elementToScrollRef.scroll({
+                    top: last_known_scroll_position * 3,
+                    behavior: "smooth",
+                });
+            } else if (isTop) {
+                last_known_scroll_position = 0;
+                elementToScrollRef.scroll({
+                    top: 100,
+                    behavior: "smooth",
+                });
             } else {
-                last_known_scroll_position += e.deltaY;
+                if (e.deltaY < 0) {
+                    elementToScrollRef.scroll({
+                        top: -last_known_scroll_position * 3,
+                        behavior: "smooth",
+                    });
+                }
             }
-            setTimeout(() => {
-                scrollElement(
-                    elementToScroll as Element,
-                    last_known_scroll_position
-                );
-            }, 50);
+        }
+    };
+
+    const scrollTouchHandler = (e: React.TouchEvent) => {
+        if (elementToScrollRef instanceof HTMLElement) {
+            console.log(e);
         }
     };
 
@@ -84,8 +101,14 @@ export default function Project() {
                     </div>
                 </button>
                 <div
-                    className={`${styles.project} w-full h-full mt-3 projectToScroll`}
-                    onWheel={(event) => scrollProject(event)}>
+                    ref={(node) => {
+                        if (node) {
+                            elementToScrollRef = node;
+                        }
+                    }}
+                    className={`${styles.project} w-full h-full mt-3 projectToScroll `}
+                    onWheel={(event) => scrollMouseHandler(event)}
+                    onTouchMove={(event) => scrollTouchHandler(event)}>
                     {project.dev ? (
                         <DevProject
                             project={project}

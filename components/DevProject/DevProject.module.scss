@@ -38,18 +38,21 @@ $size: 100%;
 
 @media (min-width: 768px) {
     .project_container {
-        display: grid;
-        grid-template-areas:
-            "a a a a"
-            "b b b b"
-            "c c c d"
-            "e e e e";
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto 2fr 1fr 1fr;
+        grid-template-rows: auto 1fr auto auto;
+        margin-bottom: 2rem;
     }
 
     .img1 {
-        width: 70%;
+        width: 90%;
+    }
+
+    .flex-element {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .buttons {
+        grid-area: e;
     }
 }
 

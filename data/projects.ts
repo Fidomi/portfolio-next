@@ -157,7 +157,7 @@ export const PROJECTS_EN: Project[] = [
         subtitle: "Which place in France suits you best?",
         desc: [
             "This project offers a small questionnaire to the user to better understand his expectations regarding his living environment.",
-            "According to his answers, a map of France is generated with the list of departments most that best fit the user.",
+            "According to his answers, a map of France is generated with the list of departments that best fit the user.",
             "You can also consult thematic maps: security, family life and environment.",
         ],
         name: "ailleurs",
