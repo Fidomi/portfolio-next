@@ -2,9 +2,13 @@ import React from "react";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import profilePic from "../../public/img/Sidonie.png";
+import { LanguageContext } from "../../utils/languageContext";
+import { ABOUT_EN, ABOUT_FR } from "../../data/about";
 
 const About = () => {
     const curColor: string = "gray-300";
+    const { language, changeLanguage } = React.useContext(LanguageContext);
+    const ABOUT = language === "FR" ? ABOUT_FR : ABOUT_EN;
     return (
         <Layout curColor={curColor}>
             <div
@@ -12,9 +16,9 @@ const About = () => {
                 <div className="lg:px-4 max-w-screen-lg">
                     <div className="flex flex-col md:flex-row md:justify-between">
                         <h1 className="text-base order-2 md:order-1 font-medium text-black md:text-2xl lg:text-4xl">
-                            Hi there!
+                            {ABOUT.salutation}
                             <br />
-                            I'm Sidonie, front-end developer from France.
+                            {ABOUT.title}
                         </h1>
                         <div className="order-1 self-end md:order-last">
                             <Image
@@ -28,30 +32,16 @@ const About = () => {
                     </div>
 
                     <div className="mt-4 text-gray-800 font-body text-sm md:text-lg">
-                        <p>
-                            I like to code things from scratch as much as using
-                            React or Next. I'm a quick learner and adapt really
-                            fast. I also have skills in graphic techniques since
-                            I spent more than 10 years in the VFX field
-                            (compositing and motion design) for TV series and
-                            long feature films.
-                        </p>
-                        <p className="mt-2">
-                            Languages : TypeScript / JavaScript, HTML, CSS,
-                            Less, MySQL, Pug, Twig, Less
-                            <br />
-                            Dev Tools : React, Next, Node, Express, MongoDB,
-                            Gulp, Git, Bootstrap, Tailwind
-                            <br />
-                            Design Tools : Figma, Photoshop, Illustrator
-                            <br />
-                            VFX Tools : Nuke, After Effects, Unreal Engine 4
-                            (lighting/shading), Blender (basics)
-                        </p>
+                        <p>{ABOUT.desc}</p>
+                        <div className="mt-2">
+                            {ABOUT.technologies.map((ele, index) => {
+                                return <p key={`about-${index}`}>{ele}</p>;
+                            })}
+                        </div>
                         <p className="mt-2 font-bold">
-                            0033 + (0)663915267
+                            {ABOUT.phone}
                             <br />
-                            sidonie.moulart@gmail.com
+                            {ABOUT.email}
                         </p>
                     </div>
                 </div>
