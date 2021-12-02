@@ -2,13 +2,13 @@ $size: 2rem;
 
 .projects_container {
     display: grid;
-    height: auto;
+    height: 75vh;
     grid-template-areas:
         ". b b b ."
         "a d d d c"
         "a d d d c";
     grid-template-columns: 10% 1fr 1fr 1fr 10%;
-    grid-template-rows: auto 50% 1fr;
+    grid-template-rows: 10% 42.5% 42.5%;
     gap: 5px;
 }
 
@@ -24,7 +24,7 @@ $size: 2rem;
     width: $size;
     border-bottom-right-radius: $size * 2;
     border-top-right-radius: $size * 2;
-    border: solid black 2px;
+    border: solid black 0.5px;
     border-left: none;
 }
 
@@ -34,13 +34,13 @@ $size: 2rem;
     width: $size;
     border-bottom-left-radius: $size * 2;
     border-top-left-radius: $size * 2;
-    border: solid black 2px;
+    border: solid black 0.5px;
     border-right: none;
 }
 
 .project {
     grid-area: d;
-    overflow-y: hidden scroll;
+    overflow: hidden;
 }
 
 @media (min-width: 768px) {

@@ -3,17 +3,25 @@ $size: 100%;
 .project_container {
     display: grid;
     grid-template-areas:
-        "a a a"
-        // "b b b"
-        // "c c c"
-        "d d d"
-        "e e e";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(3fr, 8fr) 1fr 2fr;
+        "a a a a"
+        "e e e e"
+        "b b b b"
+        "c c c c"
+        "d d d d";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(3fr, 8fr) 1fr 1fr 1fr;
     gap: 5px;
 }
 
-.title {
+.description {
+    grid-area: b;
+}
+
+.technical_sheet {
+    grid-area: c;
+}
+
+.technologies {
     grid-area: d;
 }
 
@@ -21,10 +29,10 @@ $size: 100%;
     margin: 0 auto;
     grid-area: a;
     width: 100%;
-    max-width: 960px;
+    max-width: 620px;
 }
 
-.description {
+.buttons {
     grid-area: e;
 }
 
@@ -32,11 +40,12 @@ $size: 100%;
     .project_container {
         display: grid;
         grid-template-areas:
-            "a a a"
-            "d d d"
-            "e e e";
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto 1fr 2fr;
+            "a a a a"
+            "b b b b"
+            "c c c d"
+            "e e e e";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto 2fr 1fr 1fr;
     }
 
     .img1 {

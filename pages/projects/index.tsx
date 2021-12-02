@@ -3,11 +3,10 @@ import { Layout } from "../../components/Layout";
 import styles from "./Projects.module.scss";
 import { ShowedProjectContext } from "../../utils/context";
 import { LanguageContext } from "../../utils/languageContext";
-import VideoProject, {
-    VideoProjectInfo,
-} from "../../components/VideoProject/VideoProject";
+import VideoProject from "../../components/VideoProject/VideoProject";
 import DevProject from "../../components/DevProject/DevProject";
 import { PROJECTS_EN, PROJECTS_FR, PROJECTS_COLORS } from "../../data/projects";
+import { scrollElement } from "../../utils/scrollElement";
 
 export default function Project() {
     const { project, changeProject } = React.useContext(ShowedProjectContext);
@@ -36,6 +35,27 @@ export default function Project() {
         }
     };
 
+    let last_known_scroll_position = 0;
+
+    const scrollProject = (e: React.WheelEvent) => {
+        console.log("scrolling");
+        const elementToScroll = document.querySelector(".projectToScroll");
+        if (typeof elementToScroll !== null) {
+            var delta = e.deltaY;
+            if (delta < 0) {
+                last_known_scroll_position += e.deltaY;
+            } else {
+                last_known_scroll_position += e.deltaY;
+            }
+            setTimeout(() => {
+                scrollElement(
+                    elementToScroll as Element,
+                    last_known_scroll_position
+                );
+            }, 50);
+        }
+    };
+
     return (
         <Layout curColor={curColor}>
             <div className={`${styles.projects_container} w-full`}>
@@ -57,13 +77,15 @@ export default function Project() {
                     onClick={nextProject}
                     className={`${styles.buttonRight} bg-${
                         PROJECTS_COLORS[project.id - 1][1]
-                    }-700 hover:bg-${curColor} text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
+                    }-700 hover:bg-${curColor}    text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
                     <div
                         className={`invisible font-body md:text-base lg:text-lg`}>
                         NEXT
                     </div>
                 </button>
-                <div className={`${styles.project} w-full h-full mt-3`}>
+                <div
+                    className={`${styles.project} w-full h-full mt-3 projectToScroll`}
+                    onWheel={(event) => scrollProject(event)}>
                     {project.dev ? (
                         <DevProject
                             project={project}

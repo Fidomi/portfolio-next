@@ -8,12 +8,10 @@ const SwitchKnob = () => {
     const handleClick = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         language === "FR" ? changeLanguage("EN") : changeLanguage("FR");
         const element = e.target as HTMLInputElement;
-        console.log(element.checked);
     };
     const handleChange = () => {
         isChecked = language === "FR" ? true : false;
     };
-    console.log("language", language);
 
     return (
         <div className={`${style.switch_container}`}>

@@ -14,7 +14,7 @@ function Header({ bgColor }: { bgColor: string }) {
                 <div className={`flex items-center`}>
                     <SwitchKnob />
                     <Link href="/about">
-                        <a className="text-lg w-32 font-body lg:text-2xl">
+                        <a className="text-lg w-20 lg:w-32 font-body lg:text-2xl">
                             {language === "EN" ? "ABOUT" : "À PROPOS"}
                         </a>
                     </Link>

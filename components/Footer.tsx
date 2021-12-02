@@ -5,7 +5,7 @@ const Footer = ({ bgColor }: { bgColor: string }) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     return (
         <div
-            className={`flex-1 w-full pt-5 pb-2 bg-${bgColor} max-h-44 md:max-h-36`}>
+            className={`flex-1 w-full pt-2 pb-2 bg-${bgColor} max-h-30 md:max-h-36`}>
             <footer className="flex flex-row flex-wrap  w-full justify-between px-5 items-end text-lg font-body md:flex-nowrap">
                 <div className="flex order-1 flex-50 flex-col text-sm md:text-base md:order-1 md:flex-25">
                     <p>
