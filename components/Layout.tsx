@@ -11,7 +11,7 @@ export const Layout = ({
 }) => {
     return (
         <div
-            className={`bg-${curColor} flex flex-col min-h-screen justify-center items-center`}>
+            className={`${curColor} flex flex-col min-h-screen justify-center items-center`}>
             <Header bgColor={curColor} />
             <main className="flex-4 flex-grow w-full mx-auto antialiased h-auto flex flex-col justify-center items-center">
                 {children}

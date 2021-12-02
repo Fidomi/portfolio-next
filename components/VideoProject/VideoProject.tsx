@@ -7,14 +7,14 @@ import style from "./VideoProject.module.scss";
 export type VideoProjectInfo = {
     project: Project;
     color: string;
+    textColor: string;
+    textColorDark: string;
 };
 
 const VideoProject = (props: VideoProjectInfo) => {
     const ProjectPlayIcon = (
         <PlayIcon
-            className={`w-16 md:w-32 text-${props.color} hover:text-${
-                PROJECTS_COLORS[props.project.id - 1][1]
-            }-700`}
+            className={`w-16 md:w-32 ${props.textColor} hover:${props.textColorDark}`}
         />
     );
     console.log(props.project.imgC);

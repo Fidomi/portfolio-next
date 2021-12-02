@@ -6,7 +6,7 @@ import { LanguageContext } from "../../utils/languageContext";
 import { ABOUT_EN, ABOUT_FR } from "../../data/about";
 
 const About = () => {
-    const curColor: string = "gray-300";
+    const curColor: string = "bg-gray-300";
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const ABOUT = language === "FR" ? ABOUT_FR : ABOUT_EN;
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectInfo, PROJECTS_COLORS } from "../../data/projects";
+import { ProjectInfo } from "../../data/projects";
 import styles from "./DevProject.module.scss";
 import Image from "next/image";
 import Carousel from "../Carousel/Carousel";
@@ -28,7 +28,7 @@ const DevProject = (props: ProjectInfo) => {
                 <div className="flex flex-row justify-around">
                     {props.project.preview && (
                         <button
-                            className={`bg-black hover:bg-${props.color}
+                            className={`bg-black hover:${props.color}
                      text-white text-xs py-1 px-2  m-1 rounded-full md:text-base md:py-2 md:px-4`}>
                             {language === "EN"
                                 ? "VISIT PROJECT"
@@ -37,7 +37,7 @@ const DevProject = (props: ProjectInfo) => {
                     )}
                     {props.project.code && (
                         <button
-                            className={`bg-black hover:bg-${props.color} hover:border-solid hover:border-4 hover:border-black
+                            className={`bg-black hover:${props.color} hover:border-solid hover:border-4 hover:border-black
                      text-white text-xs py-1 px-2 m-1 rounded-full md:text-base md:py-2 md:px-4`}>
                             {language === "EN"
                                 ? "VIEW CODE ON GITHUB"

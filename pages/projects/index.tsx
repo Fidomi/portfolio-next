@@ -12,9 +12,16 @@ export default function Project() {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
-    const curColor: string = `${PROJECTS_COLORS[project.id - 1][1]}-${
+    const curColor: string = `bg-${PROJECTS_COLORS[project.id - 1][1]}-${
         PROJECTS_COLORS[project.id - 1][2]
     }`;
+    const curColorDark: string = `bg-${PROJECTS_COLORS[project.id - 1][1]}-700`;
+    const textColor: string = `text-${PROJECTS_COLORS[project.id - 1][1]}-${
+        PROJECTS_COLORS[project.id - 1][2]
+    }`;
+    const textColorDark: string = `text-${
+        PROJECTS_COLORS[project.id - 1][1]
+    }-700`;
 
     const prevProject = () => {
         const curIndex = project.id - 1;
@@ -82,9 +89,7 @@ export default function Project() {
                 </div>
                 <button
                     onClick={prevProject}
-                    className={`${styles.buttonLeft} bg-${
-                        PROJECTS_COLORS[project.id - 1][1]
-                    }-700 hover:bg-${curColor} flex flex-col justify-center items-center justify-self-start place-self-center`}>
+                    className={`${styles.buttonLeft} ${curColorDark} hover:${curColor} flex flex-col justify-center items-center justify-self-start place-self-center`}>
                     <div
                         className={`invisible font-body md:text-base lg:text-lg`}>
                         PREV
@@ -92,9 +97,7 @@ export default function Project() {
                 </button>
                 <button
                     onClick={nextProject}
-                    className={`${styles.buttonRight} bg-${
-                        PROJECTS_COLORS[project.id - 1][1]
-                    }-700 hover:bg-${curColor}    text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
+                    className={`${styles.buttonRight} ${curColorDark} hover:${curColor}   text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
                     <div
                         className={`invisible font-body md:text-base lg:text-lg`}>
                         NEXT
@@ -119,6 +122,8 @@ export default function Project() {
                         <VideoProject
                             project={project}
                             color={curColor}
+                            textColor={textColor}
+                            textColorDark={textColorDark}
                             key={`videoproject_${project.name}`}
                         />
                     )}
