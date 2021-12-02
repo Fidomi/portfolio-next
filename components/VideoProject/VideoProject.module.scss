@@ -4,8 +4,8 @@ $maxSize: 800px;
 
 .player_wrapper {
     position: relative;
-    height: math.div($size * 0.65 * 9, 16);
-    width: $size * 0.65;
+    height: math.div($size * 0.8 * 9, 16);
+    width: $size * 0.8;
 }
 
 @media (min-width: 640px) {

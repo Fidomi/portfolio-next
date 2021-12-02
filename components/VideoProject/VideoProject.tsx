@@ -1,5 +1,5 @@
 import React from "react";
-import { Project, PROJECTS_COLORS } from "../../data/projects";
+import { Project } from "../../data/projects";
 import ReactPlayer from "react-player";
 import { PlayIcon } from "@heroicons/react/solid";
 import style from "./VideoProject.module.scss";
@@ -20,7 +20,7 @@ const VideoProject = (props: VideoProjectInfo) => {
     console.log(props.project.imgC);
 
     return (
-        <div className="flex flex-col h-full w-full mx-auto justify-around items-center md:max-w-3xl lg:max-w-2xl">
+        <div className="flex flex-col h-full w-full mx-auto justify-start items-center md:max-w-3xl lg:max-w-2xl">
             {/* md:max-w-3xl lg:max-w-4xl max-w-full mb-5 self-center  */}
             <div className={`${style.player_wrapper}`}>
                 <ReactPlayer
@@ -31,11 +31,11 @@ const VideoProject = (props: VideoProjectInfo) => {
                     height="100%"
                 />
             </div>
-            <div className="self-center">
-                <h2 className="text-xs sm:text-sm md:text-lg font-bold text-left">
+            <div className="self-center mt-8">
+                <h2 className="text-xs mt-2 sm:text-sm md:text-lg font-bold text-left">
                     {props.project.subtitle}
                 </h2>
-                <div className="text-xs sm:text-sm md:text-lg">
+                <div className="text-xs mt-2 sm:text-sm md:text-lg">
                     {props.project.desc.map((ele, index) => {
                         return (
                             <p key={`${props.project.id}-desc-${index}`}>

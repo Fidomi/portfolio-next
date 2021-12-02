@@ -5,23 +5,107 @@ import { ShowedProjectContext } from "../../utils/context";
 import { LanguageContext } from "../../utils/languageContext";
 import VideoProject from "../../components/VideoProject/VideoProject";
 import DevProject from "../../components/DevProject/DevProject";
-import { PROJECTS_EN, PROJECTS_FR, PROJECTS_COLORS } from "../../data/projects";
+import { PROJECTS_EN, PROJECTS_FR } from "../../data/projects";
+
+function makeColors(id: number) {
+    let [curColor, curColorDark, textColor, textColorDark] = [
+        "bg-yellow",
+        "bg-yellow-700",
+        "text-grey",
+        "text-black",
+    ];
+    switch (id) {
+        case 1:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-rosado-dark",
+                "bg-rosado",
+                "text-rosado-dark",
+                "text-rosado",
+            ];
+            break;
+        case 2:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-blush",
+                "bg-blush-dark",
+                "text-blush",
+                "text-blush-dark",
+            ];
+            break;
+        case 3:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-olive",
+                "bg-olive-dark",
+                "text-olive",
+                "text-olive-dark",
+            ];
+            break;
+        case 4:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-asparagus",
+                "bg-asparagus-dark",
+                "text-asparagus",
+                "text-asparagus-dark",
+            ];
+            break;
+        case 5:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-seagreen",
+                "bg-seagreen-dark",
+                "text-seagreen",
+                "text-seagreen-dark",
+            ];
+            break;
+        case 6:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-pine",
+                "bg-pine-dark",
+                "text-pine",
+                "text-pine-dark",
+            ];
+            break;
+        case 7:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-steel",
+                "bg-steel-dark",
+                "text-steel",
+                "text-steel-dark",
+            ];
+            break;
+        case 8:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-orchid",
+                "bg-orchid-dark",
+                "text-orchid",
+                "text-orchid-dark",
+            ];
+            break;
+        case 9:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-chocolate",
+                "bg-chocolate-dark",
+                "text-chocolate",
+                "text-chocolate-dark",
+            ];
+            break;
+        default:
+            [curColor, curColorDark, textColor, textColorDark] = [
+                "bg-yellow",
+                "bg-yellow-700",
+                "text-grey",
+                "text-black",
+            ];
+    }
+    return [curColor, curColorDark, textColor, textColorDark];
+}
 
 export default function Project() {
     const { project, changeProject } = React.useContext(ShowedProjectContext);
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
-    const curColor: string = `bg-${PROJECTS_COLORS[project.id - 1][1]}-${
-        PROJECTS_COLORS[project.id - 1][2]
-    }`;
-    const curColorDark: string = `bg-${PROJECTS_COLORS[project.id - 1][1]}-700`;
-    const textColor: string = `text-${PROJECTS_COLORS[project.id - 1][1]}-${
-        PROJECTS_COLORS[project.id - 1][2]
-    }`;
-    const textColorDark: string = `text-${
-        PROJECTS_COLORS[project.id - 1][1]
-    }-700`;
+    let [curColor, curColorDark, textColor, textColorDark] = makeColors(
+        project.id
+    );
 
     const prevProject = () => {
         const curIndex = project.id - 1;

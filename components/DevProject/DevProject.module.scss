@@ -1,4 +1,6 @@
-$size: 100%;
+@use "sass:math";
+$size: 100vw;
+$maxSize: 800px;
 
 .project_container {
     display: grid;
@@ -9,7 +11,7 @@ $size: 100%;
         "c c c c"
         "d d d d";
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: minmax(3fr, 8fr) 1fr 1fr 1fr;
+    grid-template-rows: math.div($size * 9, 16) auto 1fr 1fr;
     gap: 5px;
 }
 
@@ -28,12 +30,18 @@ $size: 100%;
 .img1 {
     margin: 0 auto;
     grid-area: a;
-    width: 100%;
-    max-width: 620px;
+    max-height: math.div($size * 0.65 * 9, 16);
+    max-width: $size * 0.8;
 }
 
 .buttons {
     grid-area: e;
+}
+@media (min-width: 640px) {
+    .img1 {
+        max-height: math.div($size * 9, 16);
+        max-width: $size;
+    }
 }
 
 @media (min-width: 768px) {
@@ -43,7 +51,8 @@ $size: 100%;
     }
 
     .img1 {
-        width: 90%;
+        max-height: math.div($size * 0.75 * 9, 16);
+        max-width: $size * 0.75;
     }
 
     .flex-element {

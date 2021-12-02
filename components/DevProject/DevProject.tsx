@@ -7,6 +7,7 @@ import { LanguageContext } from "../../utils/languageContext";
 
 const DevProject = (props: ProjectInfo) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
+    console.log(props.project);
     return (
         <div className={`${styles.project_container} font-body`}>
             <div className={`${styles.img1}`}>
@@ -36,13 +37,16 @@ const DevProject = (props: ProjectInfo) => {
                         </button>
                     )}
                     {props.project.code && (
-                        <button
+                        <a
                             className={`bg-black hover:${props.color} hover:border-solid hover:border-4 hover:border-black
-                     text-white text-xs py-1 px-2 m-1 rounded-full md:text-base md:py-2 md:px-4`}>
+                     text-white text-xs py-1 px-2 m-1 rounded-full md:text-base md:py-2 md:px-4`}
+                            href={props.project.github}
+                            target="_blank"
+                            rel="noreferrer">
                             {language === "EN"
                                 ? "VIEW CODE ON GITHUB"
                                 : "VOIR LE CODE"}
-                        </button>
+                        </a>
                     )}
                 </div>
             </div>

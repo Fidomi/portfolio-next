@@ -22,6 +22,51 @@ module.exports = {
             black: colors.black,
             green: colors.green,
             white: colors.white,
+            rosado: {
+                light: "#F364A2",
+                DEFAULT: "#FF8CBA",
+                dark: "#FFE3EC",
+            },
+            blush: {
+                light: "#ca576c",
+                DEFAULT: "#b03c4e",
+                dark: "#892d3a",
+            },
+            olive: {
+                light: "#efdd80",
+                DEFAULT: "#b3912a",
+                dark: "#5b430d",
+            },
+            asparagus: {
+                light: "#c7bf58",
+                DEFAULT: "#959831",
+                dark: "#48490f",
+            },
+            seagreen: {
+                light: "#b8e4d3",
+                DEFAULT: "#3fa779",
+                dark: "#215831",
+            },
+            pine: {
+                light: "#a4e4e8",
+                DEFAULT: "#31a8a8",
+                dark: "#1c5854",
+            },
+            steel: {
+                light: "#b4e0f2",
+                DEFAULT: "#4c9dc9",
+                dark: "#284b78",
+            },
+            chocolate: {
+                light: "#f4d6b5",
+                DEFAULT: "#d78056",
+                dark: "#7f331c",
+            },
+            orchid: {
+                light: "#e7d4f1",
+                DEFAULT: "#bc81c9",
+                dark: "#683177",
+            },
         },
         fontFamily: {
             sans: ["Oswald", "sans-serif"],

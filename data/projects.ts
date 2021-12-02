@@ -36,25 +36,14 @@ export type Project = {
     technical_sheet?: string[];
     technologies?: string[];
     preview?: boolean; //is there a website?
+    url?: string;
     code?: boolean; //is there a github repo?
+    github?: string;
 };
 export interface ProjectInfo {
     project: Project;
     color: string;
 }
-
-type ProjectColor = [number, string, number];
-export const PROJECTS_COLORS: ProjectColor[] = [
-    [1, "rosado", 800],
-    [2, "blush", 600],
-    [3, "olive", 400],
-    [4, "asparagus", 400],
-    [5, "seagreen", 400],
-    [6, "pine", 400],
-    [7, "steel", 400],
-    [8, "chocolate", 400],
-    [9, "orchid", 400],
-];
 
 export const PROJECTS_EN: Project[] = [
     {
@@ -180,6 +169,7 @@ export const PROJECTS_EN: Project[] = [
         ],
         preview: true,
         code: true,
+        github: "https://github.com/Fidomi/ailleurs-react-app",
     },
     {
         dev: true,
@@ -199,6 +189,7 @@ export const PROJECTS_EN: Project[] = [
         technologies: ["Javascript", "HTML5", "CSS"],
         preview: true,
         code: true,
+        github: "https://github.com/Fidomi/random_wheel",
     },
     {
         dev: true,
@@ -231,7 +222,7 @@ export const PROJECTS_EN: Project[] = [
             "MySQL",
         ],
         preview: false,
-        code: true,
+        code: false,
     },
 ];
 
@@ -359,6 +350,7 @@ export const PROJECTS_FR: Project[] = [
         ],
         preview: true,
         code: true,
+        github: "https://github.com/Fidomi/ailleurs-react-app",
     },
     {
         dev: true,
@@ -378,6 +370,7 @@ export const PROJECTS_FR: Project[] = [
         technologies: ["Javascript", "HTML5", "CSS"],
         preview: true,
         code: true,
+        github: "https://github.com/Fidomi/random_wheel",
     },
     {
         dev: true,
@@ -410,6 +403,6 @@ export const PROJECTS_FR: Project[] = [
             "MySQL",
         ],
         preview: false,
-        code: true,
+        code: false,
     },
 ];

@@ -6,7 +6,7 @@ import { LanguageContext } from "../utils/languageContext";
 function Header({ bgColor }: { bgColor: string }) {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     return (
-        <div className={`flex-1 w-full px-2 py-3 bg-${bgColor} max-h-20`}>
+        <div className={`flex-1 w-full px-2 py-3 ${bgColor} max-h-20`}>
             <header className="flex flex-row justify-between px-5 items-center ">
                 <Link href="/">
                     <a className="text-2xl md:text-4xl">SIDONIE</a>
