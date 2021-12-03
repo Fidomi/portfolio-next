@@ -2,9 +2,10 @@
     "name": "portfolio-next",
     "private": true,
     "scripts": {
-        "dev": "next dev",
+        "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build",
         "build": "next build",
         "start": "cross-env NODE_ENV=production node server.js",
+        "dev": "next dev",
         "lint": "next lint"
     },
     "dependencies": {

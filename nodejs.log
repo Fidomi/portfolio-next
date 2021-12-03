@@ -1,0 +1,54 @@
+/srv/data/web/vhosts/default /srv/data/web/vhosts/default
+/srv/data/web/vhosts/default
+Checking for a `package.json` file.
+No package.json !
+Checking for a `server.js` file.
+Warning: Since December 1st, 2015, we're using `npm start script` in priority to start your application.
+Note: You should either have a `start` script or a `main` entry in your `package.json`.
+---------------------------
+https://docs.npmjs.com/files/package.json
+https://docs.gandi.net/en/simple_hosting/instance_languages/nodejs.html
+---------------------------
+Server ready to accept requests on port 8080
+/srv/data/web/vhosts/default /srv/data/web/vhosts/default
+/srv/data/web/vhosts/default
+Checking for a `package.json` file.
+Found your `package.json` file.
+Checking your package.json for a `start` script.
+Found a start script in your `package.json` file.
+(node:2606) UnhandledPromiseRejectionWarning: Error: Could not find a production build in the '/srv/data/web/vhosts/default/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at Server.readBuildId (/srv/data/web/vhosts/default/node_modules/next/dist/server/next-server.js:1862:23)
+    at new Server (/srv/data/web/vhosts/default/node_modules/next/dist/server/next-server.js:100:29)
+    at NextServer.createServer (/srv/data/web/vhosts/default/node_modules/next/dist/server/next.js:105:16)
+    at async /srv/data/web/vhosts/default/node_modules/next/dist/server/next.js:117:31
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2606) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:2606) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+/srv/data/web/vhosts/default /srv/data/web/vhosts/default
+/srv/data/web/vhosts/default
+Checking for a `package.json` file.
+Found your `package.json` file.
+Checking your package.json for a `start` script.
+Found a start script in your `package.json` file.
+(node:2645) UnhandledPromiseRejectionWarning: Error: Could not find a production build in the '/srv/data/web/vhosts/default/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at Server.readBuildId (/srv/data/web/vhosts/default/node_modules/next/dist/server/next-server.js:1862:23)
+    at new Server (/srv/data/web/vhosts/default/node_modules/next/dist/server/next-server.js:100:29)
+    at NextServer.createServer (/srv/data/web/vhosts/default/node_modules/next/dist/server/next.js:105:16)
+    at async /srv/data/web/vhosts/default/node_modules/next/dist/server/next.js:117:31
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2645) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:2645) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+/srv/data/web/vhosts/default /srv/data/web/vhosts/default
+/srv/data/web/vhosts/default
+Checking for a `package.json` file.
+Found your `package.json` file.
+Checking your package.json for a `start` script.
+Found a start script in your `package.json` file.
+(node:2684) UnhandledPromiseRejectionWarning: Error: Could not find a production build in the '/srv/data/web/vhosts/default/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at Server.readBuildId (/srv/data/web/vhosts/default/node_modules/next/dist/server/next-server.js:1862:23)
+    at new Server (/srv/data/web/vhosts/default/node_modules/next/dist/server/next-server.js:100:29)
+    at NextServer.createServer (/srv/data/web/vhosts/default/node_modules/next/dist/server/next.js:105:16)
+    at async /srv/data/web/vhosts/default/node_modules/next/dist/server/next.js:117:31
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2684) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:2684) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
