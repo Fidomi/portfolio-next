@@ -7,7 +7,6 @@ import { LanguageContext } from "../../utils/languageContext";
 
 const DevProject = (props: ProjectInfo) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
-    console.log(props.project);
     return (
         <div className={`${styles.project_container} font-body`}>
             <div className={`${styles.img1}`}>
@@ -15,6 +14,7 @@ const DevProject = (props: ProjectInfo) => {
                     <Carousel
                         images={props.project.imgC}
                         key={`carousel_${props.project.name}`}
+                        project={props.project.name}
                     />
                 )}
                 {!props.project.imgC[1] && (

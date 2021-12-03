@@ -17,8 +17,6 @@ const VideoProject = (props: VideoProjectInfo) => {
             className={`w-16 md:w-32 ${props.textColor} hover:${props.textColorDark}`}
         />
     );
-    console.log(props.project.imgC);
-
     return (
         <div className="flex flex-col h-full w-full mx-auto justify-start items-center md:max-w-3xl lg:max-w-2xl">
             {/* md:max-w-3xl lg:max-w-4xl max-w-full mb-5 self-center  */}
