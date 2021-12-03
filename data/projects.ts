@@ -261,8 +261,7 @@ export const PROJECTS_FR: Project[] = [
         dev: false,
         id: 3,
         title: "My Garden Map",
-        subtitle:
-            "Vidéo explicative du fonctionnement de l'application My Garden Map",
+        subtitle: "Vidéo explicative du fonctionnement de l'app My Garden Map",
         desc: [
             "Ma partie : design, storyboard, animation (After Effects).",
             "Le client : scénario",
@@ -294,7 +293,7 @@ export const PROJECTS_FR: Project[] = [
         dev: false,
         id: 5,
         title: "Réseau des Amap Idf",
-        subtitle: "Vidéo de promotion du 'Réseau des Amaps d'Ile-de-France'",
+        subtitle: "Présentation du 'Réseau des Amaps d'Ile-de-France'",
         desc: [
             "Ma mission : prises de vues, design (illustrator), storyboard, animation et compositing (after effects)",
             "Le client : scénario",
