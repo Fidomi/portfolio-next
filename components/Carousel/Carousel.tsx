@@ -5,10 +5,12 @@ import style from "./Carousel.module.scss";
 
 interface Props {
     images: StaticImageData[];
+    project: string;
 }
 
 const Carousel = (props: Props) => {
     const [index, setIndex] = useState(0);
+    const isAilleurs = props.project === "Ailleurs" ? true : false;
 
     const slideRight = () => {
         const nextIndex = index + 1;
@@ -33,11 +35,21 @@ const Carousel = (props: Props) => {
             <button className={`order-2 flex-2`} onClick={slideLeft}>
                 <ChevronLeftIcon className={`w-8 text-black mx-auto`} />
             </button>
-            <Image
-                className={`order-1 flex-1`}
-                src={props.images[index]}
-                alt={`Image-number_${index}`}
-            />
+            {isAilleurs && index === 0 ? (
+                <Image
+                    className={`order-1 flex-1`}
+                    src={props.images[index]}
+                    alt={`Image-number_${index}`}
+                    priority
+                />
+            ) : (
+                <Image
+                    className={`order-1 flex-1`}
+                    src={props.images[index]}
+                    alt={`Image-number_${index}`}
+                    priority
+                />
+            )}
             <button className={`order-3 flex-2`} onClick={slideRight}>
                 <ChevronRightIcon className={`w-8 text-black mx-auto`} />
             </button>
