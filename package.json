@@ -1,6 +1,9 @@
 {
     "name": "portfolio-next",
     "private": true,
+    "config": {
+        "NODE_ENV": "development"
+    },
     "scripts": {
         "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build",
         "build": "next build",
