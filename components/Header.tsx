@@ -9,7 +9,7 @@ function Header({ bgColor }: { bgColor: string }) {
         <div className={`flex-1 w-full px-2 py-3 ${bgColor} max-h-20`}>
             <header className="flex flex-row justify-between px-5 items-center ">
                 <Link href="/">
-                    <a className="text-2xl md:text-4xl">SIDONIE</a>
+                    <a className="font-sans text-2xl md:text-4xl">SIDONIE</a>
                 </Link>
                 <div className={`flex items-center`}>
                     <SwitchKnob />

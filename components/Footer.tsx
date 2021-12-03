@@ -18,7 +18,7 @@ const Footer = ({ bgColor }: { bgColor: string }) => {
                 <p className="text-xs text-center order-3 pt-6 flex-100 md:order-2 md:flex-1 md:flex-50 md:text-sm md:pt-0">
                     {language === "EN"
                         ? "Build with Next.js, Typescript and Tailwind"
-                        : "Fabriqué avec Next.js, Typescript and Tailwind"}
+                        : "Fabriqué avec Next.js, Typescript et Tailwind"}
                 </p>
                 <div className="flex order-2 flex-50 flex-col items-end text-sm md:text-base md:order-3 md:flex-25 ">
                     <a href="mailto:sidonie.moulart@gmail.com">EMAIL</a>

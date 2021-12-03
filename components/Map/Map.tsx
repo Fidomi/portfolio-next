@@ -41,8 +41,12 @@ export default function Map() {
                     setSubTitle("");
                 }}
                 className={`container md:w-map md:h-map ${styles.map_container} mx-auto justify-center`}>
-                <div className={`${styles.dev} text-3xl mb-5`}>DEV</div>
-                <div className={`${styles.vfx} text-3xl`}>VFX/MOTION</div>
+                <div className={`${styles.dev} font-sans text-3xl mb-5`}>
+                    DEV
+                </div>
+                <div className={`${styles.vfx} font-sans text-3xl`}>
+                    VFX/MOTION
+                </div>
                 {PROJECTS.map((project, index) => {
                     return project.dev ? (
                         <Link
@@ -88,8 +92,10 @@ export default function Map() {
                 </div>
                 <div
                     className={`${styles.title} text-body text-left text-3xl py-4 text-blue-800 flex flex-row justify-between items-end`}>
-                    <p className="text-3xl uppercase leading-8">{title}</p>
-                    <p className="text-base leading-8">{subtitle}</p>
+                    <p className="font-sans text-3xl uppercase leading-8">
+                        {title}
+                    </p>
+                    <p className="font-body text-base leading-8">{subtitle}</p>
                 </div>
             </div>
         </div>
