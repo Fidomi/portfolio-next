@@ -2,10 +2,11 @@
     "name": "portfolio-next",
     "private": true,
     "config": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "production"
     },
     "scripts": {
         "build": "next build",
+        "postinstall": "[ -z \"$GANDI\" ] || NODE_ENV=production npm run build",
         "start": "cross-env NODE_ENV=production node server.js",
         "dev": "next dev",
         "lint": "next lint"
