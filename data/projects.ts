@@ -219,6 +219,7 @@ export const PROJECTS_EN: Project[] = [
         preview: true,
         code: true,
         github: "https://github.com/Fidomi/random_wheel",
+        url: "https://codepen.io/fidomi/project/editor/ZbLQRE",
     },
     {
         dev: true,
@@ -455,6 +456,7 @@ export const PROJECTS_FR: Project[] = [
         preview: true,
         code: true,
         github: "https://github.com/Fidomi/random_wheel",
+        url: "https://codepen.io/fidomi/project/editor/ZbLQRE",
     },
     {
         dev: true,
@@ -515,9 +517,9 @@ export const PROJECTS_FR: Project[] = [
             portfolio_3,
         ],
         technical_sheet: [
-            "J'ai d'abord esquissé une mise en page sur figma.",
-            "J'ai choisi de travailler avec le framework css Tailwind pour sa souplesse",
-            "J'ai fait deux versions : français et anglais.",
+            "J'ai d'abord esquissé plusieurs maquettes sur figma.",
+            "Puis j'ai choisi de travailler avec le framework css Tailwind pour sa souplesse",
+            "Et parce que je ne vois pas l'intérêt d'un 'dark mode' (je veux bien qu'on m'explique?) mais je comprends l'utilité d'une version anglaise, j'ai donc fait deux versions du site : français et anglais.",
         ],
         technologies: [
             "NextJS",

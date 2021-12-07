@@ -69,13 +69,16 @@ const DevProject = (props: ProjectInfo) => {
             <div className={`${styles.buttons}`}>
                 <div className="flex flex-row justify-around mb-4">
                     {props.project.preview && (
-                        <button
+                        <a
                             className={`bg-sky-600 hover:bg-sky-800
-                     text-white text-xs py-1 px-2  m-1 rounded-full md:text-base md:py-2 md:px-4`}>
+                     text-white text-xs py-1 px-2  m-1 rounded-full md:text-base md:py-2 md:px-4`}
+                            href={props.project.url}
+                            target="_blank"
+                            rel="noreferrer">
                             {language === "EN"
                                 ? "VISIT PROJECT"
                                 : "VOIR LE PROJET"}
-                        </button>
+                        </a>
                     )}
                     {props.project.code && (
                         <a
