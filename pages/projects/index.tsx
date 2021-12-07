@@ -7,95 +7,24 @@ import VideoProject from "../../components/VideoProject/VideoProject";
 import DevProject from "../../components/DevProject/DevProject";
 import { PROJECTS_EN, PROJECTS_FR } from "../../data/projects";
 
-function makeColors(id: number) {
-    let [curColor, curColorDark, textColor, textColorDark] = [
-        "bg-yellow",
-        "bg-yellow-700",
-        "text-grey",
-        "text-black",
-    ];
-    switch (id) {
-        case 1:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-rosado-dark",
-                "bg-rosado",
-                "text-rosado-dark",
-                "text-rosado",
-            ];
-            break;
-        case 2:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-blush",
-                "bg-blush-dark",
-                "text-blush",
-                "text-blush-dark",
-            ];
-            break;
-        case 3:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-olive",
-                "bg-olive-dark",
-                "text-olive",
-                "text-olive-dark",
-            ];
-            break;
-        case 4:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-asparagus",
-                "bg-asparagus-dark",
-                "text-asparagus",
-                "text-asparagus-dark",
-            ];
-            break;
-        case 5:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-seagreen",
-                "bg-seagreen-dark",
-                "text-seagreen",
-                "text-seagreen-dark",
-            ];
-            break;
-        case 6:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-pine",
-                "bg-pine-dark",
-                "text-pine",
-                "text-pine-dark",
-            ];
-            break;
-        case 7:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-steel",
-                "bg-steel-dark",
-                "text-steel",
-                "text-steel-dark",
-            ];
-            break;
-        case 8:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-orchid",
-                "bg-orchid-dark",
-                "text-orchid",
-                "text-orchid-dark",
-            ];
-            break;
-        case 9:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-chocolate",
-                "bg-chocolate-dark",
-                "text-chocolate",
-                "text-chocolate-dark",
-            ];
-            break;
-        default:
-            [curColor, curColorDark, textColor, textColorDark] = [
-                "bg-yellow",
-                "bg-yellow-700",
-                "text-grey",
-                "text-black",
-            ];
-    }
-    return [curColor, curColorDark, textColor, textColorDark];
+function makeColors(dev: boolean) {
+    let [curColor, curColorDark, textColor, textColorDark, borderColor] =
+        dev === true
+            ? [
+                  "bg-warmGray-200",
+                  "bg-sky-600",
+                  "text-sky-600",
+                  "text-sky-800",
+                  "border-sky-600",
+              ]
+            : [
+                  "bg-warmGray-200",
+                  "bg-amber-600",
+                  "text-amber-600",
+                  "text-amber-800",
+                  "border-amber-600",
+              ];
+    return [curColor, curColorDark, textColor, textColorDark, borderColor];
 }
 
 export default function Project() {
@@ -103,14 +32,13 @@ export default function Project() {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
-    let [curColor, curColorDark, textColor, textColorDark] = makeColors(
-        project.id
-    );
+    let [curColor, curColorDark, textColor, textColorDark, borderColor] =
+        makeColors(project.dev);
 
     const prevProject = () => {
         const curIndex = project.id - 1;
         if (curIndex == 0) {
-            changeProject(PROJECTS[8]);
+            changeProject(PROJECTS[9]);
         } else {
             changeProject(PROJECTS[curIndex - 1]);
         }
@@ -118,84 +46,39 @@ export default function Project() {
 
     const nextProject = () => {
         const curIndex = project.id - 1;
-        if (curIndex === 8) {
+        if (curIndex === 9) {
             changeProject(PROJECTS[0]);
         } else {
             changeProject(PROJECTS[curIndex + 1]);
         }
     };
 
-    let last_known_scroll_position = 0;
-    let elementToScrollRef: HTMLElement | null;
-
-    const scrollMouseHandler = (e: React.WheelEvent) => {
-        if (elementToScrollRef instanceof HTMLElement) {
-            let isBottom =
-                elementToScrollRef?.scrollHeight -
-                    elementToScrollRef?.scrollTop ===
-                elementToScrollRef?.clientHeight;
-            let isTop = elementToScrollRef.scrollTop === 0;
-            if (!isBottom && !isTop) {
-                last_known_scroll_position += e.deltaY;
-                elementToScrollRef.scroll({
-                    top: last_known_scroll_position * 3,
-                    behavior: "smooth",
-                });
-            } else if (isTop) {
-                last_known_scroll_position = 0;
-                elementToScrollRef.scroll({
-                    top: 100,
-                    behavior: "smooth",
-                });
-            } else {
-                if (e.deltaY < 0) {
-                    elementToScrollRef.scroll({
-                        top: -last_known_scroll_position * 3,
-                        behavior: "smooth",
-                    });
-                }
-            }
-        }
-    };
-
-    const scrollTouchHandler = (e: React.TouchEvent) => {
-        if (elementToScrollRef instanceof HTMLElement) {
-            console.log(e);
-        }
-    };
-
     return (
         <Layout curColor={curColor}>
-            <div className={`${styles.projects_container} w-full`}>
-                <div
-                    className={`${styles.project_title} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans uppercase`}>
-                    {project.title}
-                </div>
+            <div
+                className={`flex flex-row w-full justify-between p-2 fixed bg-warmGray-200 z-10`}>
                 <button
                     onClick={prevProject}
-                    className={`${styles.buttonLeft} ${curColorDark} hover:${curColor} flex flex-col justify-center items-center justify-self-start place-self-center`}>
-                    <div
-                        className={`invisible font-body md:text-base lg:text-lg`}>
-                        PREV
-                    </div>
-                </button>
-                <button
-                    onClick={nextProject}
-                    className={`${styles.buttonRight} ${curColorDark} hover:${curColor}   text-center flex flex-col justify-center items-center justify-self-end place-self-center`}>
-                    <div
-                        className={`invisible font-body md:text-base lg:text-lg`}>
-                        NEXT
-                    </div>
+                    className={`${textColor} hover:${textColorDark} text-4xl  `}>
+                    &#129044;
                 </button>
                 <div
-                    ref={(node) => {
-                        if (node) {
-                            elementToScrollRef = node;
-                        }
-                    }}
-                    className={`${styles.project} w-full h-full mt-3 projectToScroll `}
-                    onWheel={(event) => scrollMouseHandler(event)}
-                    onTouchMove={(event) => scrollTouchHandler(event)}>
+                    className={` mt-5 p-2 text-center border-double border-b-2 ${borderColor}`}>
+                    <h1
+                        className={`${textColor} text-3xl sm:text-4xl md:text-5xl font-sans uppercase`}>
+                        {project.title}
+                    </h1>
+                    <p className={`${textColor}`}>{project.subtitle}</p>
+                </div>
+                <button
+                    onClick={nextProject}
+                    className={`${textColor} hover:${textColorDark} text-4xl  `}>
+                    &#129046;
+                </button>
+            </div>
+            <div
+                className={`container z-0 w-full mx-auto mt-32 md:mt-20 md:min-h-min75`}>
+                <div className={`${styles.project} px-2 w-full h-full mt-3`}>
                     {project.dev ? (
                         <DevProject
                             project={project}

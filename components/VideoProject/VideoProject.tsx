@@ -14,13 +14,12 @@ export type VideoProjectInfo = {
 const VideoProject = (props: VideoProjectInfo) => {
     const ProjectPlayIcon = (
         <PlayIcon
-            className={`w-16 md:w-32 ${props.textColor} hover:${props.textColorDark}`}
+            className={`w-8 md:w-16 ${props.textColor} hover:${props.textColorDark}`}
         />
     );
     return (
-        <div className="flex flex-col h-full w-full mx-auto justify-start items-center md:max-w-3xl lg:max-w-2xl">
-            {/* md:max-w-3xl lg:max-w-4xl max-w-full mb-5 self-center  */}
-            <div className={`${style.player_wrapper}`}>
+        <div className="md:w-col90 md:px-0 md:text-lg px-4 flex flex-col h-full w-full justify-start items-center lg:max-w-2xl mx-auto mt-10 ">
+            <div className={`${style.player_wrapper} mt-4 lg:mt-8`}>
                 <ReactPlayer
                     url={props.project.srcVideo}
                     light={props.project.imgC[0].src}
@@ -29,11 +28,8 @@ const VideoProject = (props: VideoProjectInfo) => {
                     height="100%"
                 />
             </div>
-            <div className="self-center mt-8">
-                <h2 className="text-xs mt-2 sm:text-sm md:text-lg font-bold text-left">
-                    {props.project.subtitle}
-                </h2>
-                <div className="text-xs mt-2 sm:text-sm md:text-lg">
+            <div className="flex-grow self-center mt-8">
+                <div className="text-amber-600 font-body px-4 mt-2 sm:text-sm md:text-lg">
                     {props.project.desc.map((ele, index) => {
                         return (
                             <p key={`${props.project.id}-desc-${index}`}>

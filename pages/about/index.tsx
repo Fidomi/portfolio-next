@@ -6,16 +6,16 @@ import { LanguageContext } from "../../utils/languageContext";
 import { ABOUT_EN, ABOUT_FR } from "../../data/about";
 
 const About = () => {
-    const curColor: string = "bg-gray-300";
+    const curColor: string = "bg-warmGray-200";
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const ABOUT = language === "FR" ? ABOUT_FR : ABOUT_EN;
     return (
         <Layout curColor={curColor}>
             <div
-                className={`container max-w-xl lg:max-w-4xl px-4 flex flex-column justify-center bg-${curColor}`}>
+                className={`container mt-8 max-w-xl lg:max-w-922 lg:mt-32 px-4 flex flex-column justify-center bg-${curColor}`}>
                 <div className="lg:px-4 max-w-screen-lg">
                     <div className="flex flex-col md:flex-row md:justify-between">
-                        <h1 className="text-base order-2 md:order-1 font-medium text-black md:text-2xl lg:text-4xl">
+                        <h1 className="text-base order-2 md:order-1 font-medium text-sky-600 md:text-2xl lg:text-4xl">
                             {ABOUT.salutation}
                             <br />
                             {ABOUT.title}
@@ -31,8 +31,8 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="mt-4 text-gray-800 font-body text-sm md:text-lg">
-                        <p>{ABOUT.desc}</p>
+                    <div className="mt-4 text-sky-600 font-body text-lg  md:text-lg">
+                        <p className="leading-1 tracking-tight">{ABOUT.desc}</p>
                         <div className="mt-2">
                             {ABOUT.technologies.map((ele, index) => {
                                 return <p key={`about-${index}`}>{ele}</p>;

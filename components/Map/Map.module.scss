@@ -1,158 +1,71 @@
 @use "sass:math";
 $size: 100vw;
+$maxSize: 840px;
 
 .map_container {
     display: grid;
-    grid-template-columns: math.div($size, 2.5) math.div($size, 2.5);
-    grid-template-rows: 2.25em math.div($size, 2.5) math.div($size, 2.5) 2em 4em 2em;
+    width: 100%;
+    grid-template-columns: math.div($size, 1.05);
+    grid-template-rows: 4.25em auto 4.25em auto 2em;
     grid-template-areas:
-        ". dev"
-        "a b"
-        "c d"
-        "vfx ."
-        "e e"
-        "title title";
+        "dev "
+        "projetsDev"
+        "vfx"
+        "projetsVfx"
+        "title";
     gap: 5px;
 }
 
 .dev {
     grid-area: dev;
-    text-align: right;
-    margin: auto 5px;
-    margin-bottom: 5px;
 }
 
 .vfx {
     grid-area: vfx;
-    text-align: left;
-    margin: auto 5px;
 }
 
 .title {
     grid-area: title;
-}
-
-.line {
     visibility: hidden;
 }
 
-.ailleurs {
-    grid-area: a;
-    background: no-repeat bottom / 100% url("../../public/img/ailleurs_Y.png");
-    border-radius: 50%;
+.projetsDev {
+    grid-area: projetsDev;
+}
+.projetsVfx {
+    grid-area: projetsVfx;
 }
 
-.clairenou {
-    grid-area: b;
-    background: no-repeat center / 100% url("../../public/img/clairenou_Y.png");
-}
-
-.c {
-    grid-area: c;
-    background-color: black;
-}
-
-.wheel {
-    grid-area: d;
-    background: no-repeat center / 100% url("../../public/img/wheel_Y.png");
-    border-radius: 50%;
-}
-
-.vfxSection {
-    grid-area: e;
-    display: grid;
-    grid-template-columns: repeat(7, auto);
-    grid-template-rows: 5rem;
-    gap: 2px;
-    margin-top: 5px;
-}
-
-.demo {
-    background-color: black;
-}
-
-.demo2018 {
-    background-image: url("../../public/img/demo_2018_Y.png");
-    background-position: 65% 50%;
-}
-
-.demo2016 {
-    background-image: url("../../public/img/demo_2016_Y.png");
-    background-position: 25% 50%;
-}
-
-.gardenmap {
-    background-image: url("../../public/img/my_garden_map_Y.png");
-    background-position: 25% 50%;
-}
-
-.seat {
-    background-image: url("../../public/img/seat_Y.png");
-    background-position: 25% 50%;
-}
-.amap {
-    background-image: url("../../public/img/amap_Y.png");
-    background-position: 25% 50%;
-}
-.walkcycle {
-    background-image: url("../../public/img/walk_cycle_Y.png");
-    background-position: 25% 50%;
-}
-.black {
-    background-color: black;
-}
-
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     .map_container {
-        grid-template-columns: 200px 200px 20px auto;
-        grid-template-rows: 40px 200px 200px 50px;
+        width: 100%;
+        grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
+        grid-template-rows: 4.25em math.div($size, 1.1) 2em;
         grid-template-areas:
-            "dev dev lin vfx"
-            "a b lin e"
-            "c d lin e"
-            "title title title title";
+            "dev vfx"
+            "projetsDev projetsVfx"
+            "title title";
+        gap: 10px;
     }
+}
 
-    .line {
+@media (min-width: 1024px) {
+    .map_container {
+        width: 90vw;
+        max-width: 840px;
+        margin: 0 auto;
+        grid-template-columns: 60% 30%;
+        grid-template-rows:
+            4.25em minmax(math.div($maxSize, 2), math.div($maxSize, 1.64))
+            4.5rem;
+        grid-template-areas:
+            "dev vfx"
+            "projetsDev projetsVfx"
+            "title title";
+        gap: 6px;
+    }
+    .title {
+        grid-area: title;
         visibility: visible;
-        grid-area: lin;
-        background-color: black;
-        margin: 0 8px;
-    }
-
-    .vfxSection {
-        grid-area: e;
-        display: grid;
-        grid-template-rows: repeat(5, auto);
-        grid-template-columns: auto;
-        gap: 5px;
-    }
-
-    .demo2018 {
-        background: no-repeat / 50% 50% / 100%
-            url("../../public/img/demo_2018_Y.png");
-    }
-
-    .demo2016 {
-        background: no-repeat / 50% 50% / 100%
-            url("../../public/img/demo_2016_Y.png");
-    }
-
-    .gardenmap {
-        background: no-repeat / 50% 50% / 100%
-            url("../../public/img/my_garden_map_Y.png");
-    }
-
-    .seat {
-        background: no-repeat / 50% 50% / 100%
-            url("../../public/img/seat_Y.png");
-    }
-    .amap {
-        background: no-repeat / 50% 50% / 100%
-            url("../../public/img/amap_Y.png");
-    }
-    .walkcycle {
-        background: no-repeat / 50% 50% / 100%
-            url("../../public/img/walk_cycle_Y.png");
     }
 }

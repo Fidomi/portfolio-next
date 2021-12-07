@@ -4,13 +4,22 @@ import React, { useState, useContext } from "react";
 import { ShowedProjectContext } from "../../utils/context";
 import Link from "next/link";
 import { LanguageContext } from "../../utils/languageContext";
+import Image from "next/dist/client/image";
 
 export default function Map() {
     const { project, changeProject } = useContext(ShowedProjectContext);
-    const [title, setTitle] = useState("");
-    const [subtitle, setSubTitle] = useState("");
     const { language, changeLanguage } = React.useContext(LanguageContext);
+    let defaultMessage =
+        language === "FR" ? "Survolez les images" : "Hover over images";
+    const [title, setTitle] = useState(defaultMessage);
+    const [subtitle, setSubTitle] = useState("");
+    const [projectType, setProjectType] = useState("dev");
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
+    React.useEffect(() => {
+        language === "FR"
+            ? changeProject(PROJECTS_FR[6])
+            : changeProject(PROJECTS_EN[6]);
+    }, []);
 
     function screenTitle(event: React.SyntheticEvent): void {
         event.preventDefault();
@@ -24,79 +33,148 @@ export default function Map() {
         const newProject = PROJECTS.find(
             (ele) => ele.name === newName
         ) as Project;
+        newProject.dev === true ? setProjectType("dev") : setProjectType("vfx");
         if (newTitle) {
             setTitle(newTitle);
             setSubTitle(newSubTitle);
-            if (changeProject !== undefined) {
-                changeProject(newProject);
-            }
         }
     }
 
+    function handleClick(event: React.SyntheticEvent): void {
+        const newName = (event.target as HTMLElement).getAttribute(
+            "data-name"
+        ) as string;
+        const newProject = PROJECTS.find(
+            (ele) => ele.name === newName
+        ) as Project;
+        changeProject(newProject);
+    }
+
     return (
-        <div className="container">
+        <div className="mx-auto mt-12">
+            {language === "FR" ? (
+                <h1
+                    className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight my-5 sm:text-3xl mx-auto`}>
+                    Bienvenue sur mon portfolio! Je suis Sidonie,{" "}
+                    <strong>développeuse frontend</strong> avec des compétences
+                    en effets spéciaux numériques.
+                </h1>
+            ) : (
+                <h1
+                    className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight my-5 sm:text-3xl mx-auto`}>
+                    Welcome to my portfolio! {`I'm`} Sidonie,{" "}
+                    <strong>frontend developer</strong> with skills in VFX.
+                </h1>
+            )}
             <div
                 onMouseLeave={() => {
-                    setTitle("");
+                    setTitle(defaultMessage);
                     setSubTitle("");
                 }}
-                className={`container md:w-map md:h-map ${styles.map_container} mx-auto justify-center`}>
-                <div className={`${styles.dev} font-sans text-3xl mb-5`}>
-                    DEV
-                </div>
-                <div className={`${styles.vfx} font-sans text-3xl`}>
-                    VFX/MOTION
-                </div>
-                {PROJECTS.map((project, index) => {
-                    return project.dev ? (
-                        <Link
-                            href="/projects"
-                            key={project.id.toString()}
-                            passHref>
-                            <a
-                                title={project.title}
-                                data-subtitle={project.subtitle}
-                                data-name={project.name}
-                                onMouseEnter={screenTitle}
-                                className={`${styles[project.name]}`}></a>
-                        </Link>
-                    ) : (
-                        ""
-                    );
-                })}
+                className={`${styles.map_container} mx-auto  mt-8  justify-center`}>
                 <div
-                    className={styles.c}
-                    onMouseEnter={() => setTitle("")}></div>
-                <div className={`${styles.line}`}></div>
-                <div className={styles.vfxSection}>
-                    {PROJECTS.map((project, index) => {
+                    className={`${styles.dev} font-sans text-sky-600 text-4xl mb-5 text-right sm:text-left border-b-2 border-sky-600`}>
+                    {language === "FR" ? "PROJETS DEV" : "DEV PROJECTS"}
+                </div>
+                <div
+                    className={`${styles.vfx} font-sans text-amber-600 text-4xl mb-5 text-left border-b-2 border-amber-600`}>
+                    {language === "FR" ? "VFX/MOTION" : "VFX/MOTION"}
+                </div>
+                <div
+                    className={`${styles.projetsDev} flex flex-col justify-between content-between flex-wrap`}>
+                    {PROJECTS.map((project) => {
+                        return project.dev ? (
+                            <div
+                                key={"dev-" + project.id.toString()}
+                                className={
+                                    "w-full flex flex-col mx-auto overflow-hidden sm:w-col48 sm:h-row48 "
+                                }>
+                                <Link href="/projects" passHref>
+                                    <a
+                                        onMouseEnter={screenTitle}
+                                        onClick={(e) => handleClick(e)}
+                                        className="inline">
+                                        <Image
+                                            title={project.title}
+                                            data-subtitle={project.subtitle}
+                                            data-name={project.name}
+                                            src={project.img[0]}
+                                            alt={project.subtitle}
+                                            layout="responsive"
+                                            sizes="100vw"
+                                        />
+                                    </a>
+                                </Link>
+                                <div
+                                    className={`flex flex-col justify-end px-2 pt-2 mb-5`}>
+                                    <h3 className="uppercase md:text-lg lg:hidden text-sky-600">
+                                        {project.title}
+                                    </h3>
+                                    <div className="lg:hidden md:text-lg leading-5 font-body text-sky-600">
+                                        {project.subtitle}
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            ""
+                        );
+                    })}
+                </div>
+                <div
+                    className={`${styles.projetsVfx} bg-red-200 flex flex-col justify-between`}>
+                    {PROJECTS.map((project) => {
                         return project.dev ? (
                             ""
                         ) : (
-                            <Link
-                                href="/projects"
-                                key={project.id.toString()}
-                                passHref>
-                                <a
-                                    title={project.title}
-                                    data-subtitle={project.subtitle}
-                                    data-name={project.name}
-                                    onMouseEnter={screenTitle}
-                                    className={`${styles[project.name]}`}></a>
-                            </Link>
+                            <div
+                                key={"vfx-" + project.id.toString()}
+                                className={"flex flex-col mx-auto w-full "}>
+                                <div
+                                    className={
+                                        "sm:max-h-20 lg:max-h-20 sm:overflow-hidden"
+                                    }>
+                                    <Link href="/projects" passHref>
+                                        <a
+                                            onMouseEnter={screenTitle}
+                                            onClick={(e) => handleClick(e)}>
+                                            <Image
+                                                src={project.img[0]}
+                                                alt={project.subtitle}
+                                                layout="responsive"
+                                                objectFit="cover"
+                                                title={project.title}
+                                                data-subtitle={project.subtitle}
+                                                data-name={project.name}
+                                            />
+                                        </a>
+                                    </Link>
+                                </div>
+                                <div
+                                    className={`flex flex-col justify-end px-2 pt-2 mb-5 sm:mb-1 sm:pt-0`}>
+                                    <h3 className="uppercase text-lg lg:hidden text-amber-600">
+                                        {project.title}
+                                    </h3>
+                                    <div className="lg:hidden text-lg leading-4 font-body text-amber-600 sm:hidden">
+                                        {project.subtitle}
+                                    </div>
+                                </div>
+                            </div>
                         );
                     })}
+                </div>
+                {projectType === "dev" ? (
                     <div
-                        className={`${styles.demo} ${styles.black}`}
-                        onMouseEnter={() => setTitle("")}></div>
-                </div>
-                <div
-                    className={`${styles.title} text-body text-left text-3xl py-4 text-blue-800 flex flex-row justify-between items-end`}>
-                    <p className="font-sans text-3xl uppercase leading-8">
-                        {title}
-                    </p>
-                    <p className="font-body text-base leading-8">{subtitle}</p>
-                </div>
+                        className={`${styles.title} text-body text-left text-sky-600 flex flex-row justify-between items-center`}>
+                        <p className="font-sans text-4xl uppercase">{title}</p>
+                        <p className="font-body text-2xl">{subtitle}</p>
+                    </div>
+                ) : (
+                    <div
+                        className={`${styles.title} text-body text-left text-amber-600 flex flex-row justify-between items-center`}>
+                        <p className="font-sans text-4xl uppercase">{title}</p>
+                        <p className="font-body text-2xl">{subtitle}</p>
+                    </div>
+                )}
             </div>
         </div>
     );

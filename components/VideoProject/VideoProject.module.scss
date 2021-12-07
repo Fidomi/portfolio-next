@@ -1,11 +1,11 @@
 @use "sass:math";
 $size: 100vw;
-$maxSize: 800px;
+$maxSize: 1000px;
 
 .player_wrapper {
     position: relative;
-    height: math.div($size * 0.8 * 9, 16);
-    width: $size * 0.8;
+    height: math.div($size * 0.97 * 9, 16);
+    width: $size * 0.97;
 }
 
 @media (min-width: 640px) {
@@ -17,22 +17,22 @@ $maxSize: 800px;
 
 @media (min-width: 768px) and (min-height: 1024px) {
     .player_wrapper {
-        height: math.div($size * 0.75 * 9, 16);
-        width: $size * 0.75;
-    }
-}
-
-@media (min-width: 1024px) {
-    .player_wrapper {
         height: math.div($size * 0.65 * 9, 16);
         width: $size * 0.65;
     }
 }
 
+@media (min-width: 1024px) {
+    .player_wrapper {
+        height: math.div($size * 0.75 * 9, 16);
+        width: $size * 0.75;
+    }
+}
+
 @media (min-width: 1280px) {
     .player_wrapper {
-        height: math.div($size * 0.5 * 9, 16);
-        width: $size * 0.5;
+        height: math.div($size * 0.8 * 9, 16);
+        width: $size * 0.8;
         max-width: $maxSize;
         max-height: math.div($maxSize * 9, 16);
     }

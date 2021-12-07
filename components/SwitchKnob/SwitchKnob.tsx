@@ -1,8 +1,9 @@
 import style from "./SwitchKnob.module.scss";
 import { LanguageContext } from "../../utils/languageContext";
 import React from "react";
+import { Project } from "../../data/projects";
 
-const SwitchKnob = () => {
+const SwitchKnob = ({ project }: { project: Project }) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let isChecked: boolean = language === "FR" ? true : false;
     const handleClick = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
@@ -23,11 +24,35 @@ const SwitchKnob = () => {
                 onChange={handleChange}
                 checked={isChecked}
             />
-            <label htmlFor="switch" id={`${style.label}`}>
-                <span className={`${style.text} ${style.en}`}>EN</span>
-                <span className={`${style.text} ${style.fr}`}>FR</span>
-                <span className={`${style.ball} bg-black`}></span>
-            </label>
+            {project.dev === true ? (
+                <label
+                    htmlFor="switch"
+                    id={`${style.label}`}
+                    className="border border-solid border-sky-600">
+                    <span className={`${style.text} ${style.en} text-sky-600`}>
+                        EN
+                    </span>
+                    <span className={`${style.text} ${style.fr} text-sky-600`}>
+                        FR
+                    </span>
+                    <span className={`${style.ball} bg-sky-600`}></span>
+                </label>
+            ) : (
+                <label
+                    htmlFor="switch"
+                    id={`${style.label}`}
+                    className="border border-solid border-amber-600">
+                    <span
+                        className={`${style.text} ${style.en} text-amber-600`}>
+                        EN
+                    </span>
+                    <span
+                        className={`${style.text} ${style.fr} text-amber-600`}>
+                        FR
+                    </span>
+                    <span className={`${style.ball} bg-amber-600`}></span>
+                </label>
+            )}
         </div>
     );
 };

@@ -2,40 +2,21 @@ $size: 2rem;
 
 .projects_container {
     display: grid;
-    height: 75vh;
+    height: auto;
+    min-height: 75vh;
     grid-template-areas:
-        ". b b b ."
-        "a d d d c"
-        "a d d d c";
+        "b b b b b"
+        "d d d d d"
+        "d d d d d";
     grid-template-columns: 10% 1fr 1fr 1fr 10%;
-    grid-template-rows: 10% 42.5% 42.5%;
+    grid-template-rows: 5.5rem auto auto;
     gap: 5px;
+    margin-top: 2rem;
 }
 
 .project_title {
     grid-area: b;
-    text-align: center;
-    margin: auto 5px;
-}
-
-.buttonLeft {
-    grid-area: a;
-    height: $size * 2;
-    width: $size;
-    border-bottom-right-radius: $size * 2;
-    border-top-right-radius: $size * 2;
-    border: solid black 0.5px;
-    border-left: none;
-}
-
-.buttonRight {
-    grid-area: c;
-    height: $size * 2;
-    width: $size;
-    border-bottom-left-radius: $size * 2;
-    border-top-left-radius: $size * 2;
-    border: solid black 0.5px;
-    border-right: none;
+    margin: auto 0;
 }
 
 .project {
@@ -45,45 +26,12 @@ $size: 2rem;
 
 @media (min-width: 768px) {
     .projects_container {
-        grid-template-rows: 10% auto auto;
-    }
-
-    .project {
-        overflow: hidden;
-        max-width: 800px;
-        margin: 0 auto;
-        margin-top: 1.5rem;
-    }
-
-    .buttonLeft {
-        height: $size * 4;
-        width: $size * 2;
-        border-bottom-right-radius: $size * 4;
-        border-top-right-radius: $size * 4;
-    }
-
-    .buttonRight {
-        height: $size * 4;
-        width: $size * 2;
-        border-bottom-left-radius: $size * 4;
-        border-top-left-radius: $size * 4;
+        grid-template-rows: 9rem auto auto;
     }
 }
 
 @media (min-width: 1280px) {
-    .buttonLeft {
-        height: $size * 8;
-        width: $size * 4;
-        border-bottom-right-radius: $size * 8;
-        border-top-right-radius: $size * 8;
-        margin-right: 0.5rem;
-    }
-
-    .buttonRight {
-        height: $size * 8;
-        width: $size * 4;
-        border-bottom-left-radius: $size * 8;
-        border-top-left-radius: $size * 8;
-        margin-left: 0.5rem;
+    .projects_container {
+        margin: 0 auto;
     }
 }

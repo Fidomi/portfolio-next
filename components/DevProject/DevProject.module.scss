@@ -5,14 +5,19 @@ $maxSize: 800px;
 .project_container {
     display: grid;
     grid-template-areas:
+        "b b b b"
         "a a a a"
         "e e e e"
-        "b b b b"
         "c c c c"
         "d d d d";
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: math.div($size * 9, 16) auto 1fr 1fr;
-    gap: 5px;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 2px;
+}
+
+.img1 {
+    margin: 0 auto;
+    grid-area: a;
 }
 
 .description {
@@ -27,43 +32,27 @@ $maxSize: 800px;
     grid-area: d;
 }
 
-.img1 {
-    margin: 0 auto;
-    grid-area: a;
-    max-height: math.div($size * 0.65 * 9, 16);
-    max-width: $size * 0.8;
-}
-
 .buttons {
     grid-area: e;
 }
 @media (min-width: 640px) {
-    .img1 {
-        max-height: math.div($size * 9, 16);
-        max-width: $size;
-    }
+    // .img1 {
+    //     max-height: math.div($size * 9, 16);
+    //     max-width: $size;
+    // }
 }
 
 @media (min-width: 768px) {
-    .project_container {
-        grid-template-rows: auto 1fr auto auto;
-        margin-bottom: 2rem;
-    }
-
     .img1 {
-        max-height: math.div($size * 0.75 * 9, 16);
-        max-width: $size * 0.75;
-    }
-
-    .flex-element {
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .buttons {
-        grid-area: e;
+        max-width: $size * 0.9;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
+    .project_container {
+        max-width: 1024px;
+    }
+    .img1 {
+        max-width: 960px;
+    }
 }
