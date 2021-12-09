@@ -3,19 +3,15 @@ import { ProjectInfo } from "../../data/projects";
 import styles from "./DevProject.module.scss";
 import Image from "next/image";
 import { LanguageContext } from "../../utils/languageContext";
+import useWindowSize, { WindowSizeType } from "../../utils/useWindowSize";
 
 const DevProject = (props: ProjectInfo) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
-    const [width, setWidth] = React.useState<number>(window.innerWidth);
-    let isMobile = width < 768;
-    React.useEffect(() => {
-        window.addEventListener("resize", () => {
-            setWidth(window.innerWidth);
-        });
-        return () => {
-            isMobile = width < 768;
-        };
-    });
+    const windowSize = useWindowSize();
+    let isMobile = undefined;
+    if (windowSize.width !== undefined) {
+        isMobile = windowSize.width < 768;
+    }
 
     return (
         <div
