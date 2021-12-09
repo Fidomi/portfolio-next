@@ -32,9 +32,9 @@ module.exports = {
             sky: colors.sky,
         },
         fontFamily: {
-            sans: ["Oswald", "sans-serif"],
+            sans: ["Vidaloka", "serif"],
             serif: ["ui - serif", "Georgia", "Cambria", "serif"],
-            body: ["Dosis", "sans"],
+            body: ["Quicksand", "sans-serif"],
         },
         fontSize: {
             xs: ".75rem",

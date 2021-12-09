@@ -29,10 +29,12 @@ const SwitchKnob = ({ project }: { project: Project }) => {
                     htmlFor="switch"
                     id={`${style.label}`}
                     className="border border-solid border-sky-600">
-                    <span className={`${style.text} ${style.en} text-sky-600`}>
+                    <span
+                        className={`${style.text} ${style.en} font-body text-sky-600`}>
                         EN
                     </span>
-                    <span className={`${style.text} ${style.fr} text-sky-600`}>
+                    <span
+                        className={`${style.text} ${style.fr} font-body text-sky-600`}>
                         FR
                     </span>
                     <span className={`${style.ball} bg-sky-600`}></span>
@@ -41,13 +43,13 @@ const SwitchKnob = ({ project }: { project: Project }) => {
                 <label
                     htmlFor="switch"
                     id={`${style.label}`}
-                    className="border border-solid border-amber-600">
+                    className="border border-solid border-amber-600 font-body">
                     <span
-                        className={`${style.text} ${style.en} text-amber-600`}>
+                        className={`${style.text} ${style.en} font-body text-amber-600`}>
                         EN
                     </span>
                     <span
-                        className={`${style.text} ${style.fr} text-amber-600`}>
+                        className={`${style.text} ${style.fr} font-body text-amber-600`}>
                         FR
                     </span>
                     <span className={`${style.ball} bg-amber-600`}></span>

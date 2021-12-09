@@ -4,7 +4,7 @@
 
 #label {
     display: flex;
-    width: 48px;
+    width: 50px;
     height: 21px;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +40,7 @@ label .text {
 }
 
 input:checked + label .ball {
-    transform: translateX(22px);
+    transform: translateX(24px);
 }
 input:unchecked + label .ball {
     transform: translateX(-28px);
@@ -54,7 +54,7 @@ input:unchecked + label .ball {
         margin: 0 1.5rem;
     }
     #label {
-        width: 52px;
+        width: 54px;
         height: 24px;
     }
     .ball {

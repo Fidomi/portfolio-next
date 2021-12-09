@@ -37,13 +37,13 @@ function Header({ bgColor }: { bgColor: string }) {
                         {project.dev === true ? (
                             <a
                                 onClick={resetProject}
-                                className="text-lg w-20 text-sky-600 text-right md:w-32 font-body md:text-2xl">
+                                className="text-base md:text-lg w-20 text-sky-600 text-right md:w-32 font-body md:text-2xl">
                                 {language === "EN" ? "ABOUT" : "À PROPOS"}
                             </a>
                         ) : (
                             <a
                                 onClick={resetProject}
-                                className="text-lg w-20 text-amber-600 text-right md:w-32 font-body md:text-2xl">
+                                className="text-base md:text-lg w-20 text-amber-600 text-right md:w-32 font-body md:text-2xl">
                                 {language === "EN" ? "ABOUT" : "À PROPOS"}
                             </a>
                         )}

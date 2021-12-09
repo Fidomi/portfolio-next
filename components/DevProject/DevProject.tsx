@@ -6,13 +6,16 @@ import { LanguageContext } from "../../utils/languageContext";
 
 const DevProject = (props: ProjectInfo) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
-    const [width, setWidth] = React.useState<number>(768);
+    const [width, setWidth] = React.useState<number>(window.innerWidth);
+    let isMobile = width < 768;
     React.useEffect(() => {
         window.addEventListener("resize", () => {
             setWidth(window.innerWidth);
         });
-    }, []);
-    const isMobile = width < 768;
+        return () => {
+            isMobile = width < 768;
+        };
+    });
 
     return (
         <div

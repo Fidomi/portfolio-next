@@ -18,8 +18,8 @@ const VideoProject = (props: VideoProjectInfo) => {
         />
     );
     return (
-        <div className="md:w-col90 md:px-0 md:text-lg px-4 flex flex-col h-full w-full justify-start items-center lg:max-w-2xl mx-auto mt-10 ">
-            <div className={`${style.player_wrapper} mt-4 lg:mt-8`}>
+        <div className="md:w-col90 md:px-0 md:text-lg px-4 flex flex-col h-full w-full justify-between items-center lg:max-w-2xl mx-auto mt-10 ">
+            <div className={`${style.player_wrapper} md:mt-20 lg:mt-8`}>
                 <ReactPlayer
                     url={props.project.srcVideo}
                     light={props.project.imgC[0].src}
