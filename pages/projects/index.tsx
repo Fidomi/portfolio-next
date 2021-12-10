@@ -6,6 +6,7 @@ import { LanguageContext } from "../../utils/languageContext";
 import VideoProject from "../../components/VideoProject/VideoProject";
 import DevProject from "../../components/DevProject/DevProject";
 import { PROJECTS_EN, PROJECTS_FR } from "../../data/projects";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/solid";
 
 function makeColors(dev: boolean) {
     let [curColor, curColorDark, textColor, textColorDark, borderColor] =
@@ -57,11 +58,10 @@ export default function Project() {
         <Layout curColor={curColor}>
             <div
                 className={`flex flex-row w-full justify-between p-2 fixed bg-warmGray-200 z-10`}>
-                <button
+                <ArrowLeftIcon
                     onClick={prevProject}
-                    className={`${textColor} hover:${textColorDark} text-4xl  `}>
-                    &#129044;
-                </button>
+                    className={`${textColor} hover:${textColorDark} w-6 md:w-10`}
+                />
                 <div
                     className={` mt-5 p-2 text-center border-double border-b-2 ${borderColor}`}>
                     <h1
@@ -70,11 +70,10 @@ export default function Project() {
                     </h1>
                     <p className={`${textColor}`}>{project.subtitle}</p>
                 </div>
-                <button
+                <ArrowRightIcon
                     onClick={nextProject}
-                    className={`${textColor} hover:${textColorDark} text-4xl  `}>
-                    &#129046;
-                </button>
+                    className={`${textColor} hover:${textColorDark} w-6 md:w-10`}
+                />
             </div>
             <div
                 className={`container z-0 w-full mx-auto mt-32 md:mt-20 md:min-h-min75`}>

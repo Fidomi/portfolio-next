@@ -14,12 +14,13 @@ export default function Map() {
     const [title, setTitle] = useState(defaultMessage);
     const [subtitle, setSubTitle] = useState("");
     const [projectType, setProjectType] = useState("dev");
+
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
     React.useEffect(() => {
         language === "FR"
             ? changeProject(PROJECTS_FR[6])
             : changeProject(PROJECTS_EN[6]);
-    }, [changeProject, language]);
+    }, []);
 
     function screenTitle(event: React.SyntheticEvent): void {
         event.preventDefault();
@@ -47,6 +48,7 @@ export default function Map() {
         const newProject = PROJECTS.find(
             (ele) => ele.name === newName
         ) as Project;
+        console.log(newProject.name);
         changeProject(newProject);
     }
 
