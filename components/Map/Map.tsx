@@ -151,7 +151,7 @@ export default function Map() {
                                 </div>
                                 <div
                                     className={`flex flex-col justify-end px-2 pt-2 mb-5 sm:mb-1 sm:pt-0`}>
-                                    <h3 className="uppercase text-lg lg:hidden text-amber-600">
+                                    <h3 className="lg:hidden uppercase text-lg lg:hidden text-amber-600">
                                         {project.title}
                                     </h3>
                                     <div className="lg:hidden text-lg leading-4 font-body text-amber-600 sm:hidden">
@@ -165,14 +165,14 @@ export default function Map() {
                 {projectType === "dev" ? (
                     <div
                         className={`${styles.title} text-body text-left text-sky-600 flex flex-row justify-between items-center`}>
-                        <p className="font-sans text-4xl uppercase">{title}</p>
-                        <p className="font-body text-2xl">{subtitle}</p>
+                        <p className="font-sans text-2xl uppercase">{title}</p>
+                        <p className="font-body text-xl">{subtitle}</p>
                     </div>
                 ) : (
                     <div
                         className={`${styles.title} text-body text-left text-amber-600 flex flex-row justify-between items-center`}>
-                        <p className="font-sans text-4xl uppercase">{title}</p>
-                        <p className="font-body text-2xl">{subtitle}</p>
+                        <p className="font-sans text-2xl uppercase">{title}</p>
+                        <p className="font-body text-xl">{subtitle}</p>
                     </div>
                 )}
             </div>
