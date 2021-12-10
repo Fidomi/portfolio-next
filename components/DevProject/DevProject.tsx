@@ -8,9 +8,11 @@ import useWindowSize, { WindowSizeType } from "../../utils/useWindowSize";
 const DevProject = (props: ProjectInfo) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const windowSize = useWindowSize();
-    let isMobile = false;
+
     if (windowSize.width !== undefined) {
-        isMobile = windowSize.width < 768;
+        var isMobile = windowSize.width < 768;
+    } else {
+        var isMobile = false;
     }
 
     return (
