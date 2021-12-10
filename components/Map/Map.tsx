@@ -19,7 +19,7 @@ export default function Map() {
         language === "FR"
             ? changeProject(PROJECTS_FR[6])
             : changeProject(PROJECTS_EN[6]);
-    }, []);
+    }, [changeProject, language]);
 
     function screenTitle(event: React.SyntheticEvent): void {
         event.preventDefault();

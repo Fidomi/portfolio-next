@@ -7,11 +7,18 @@ import useWindowSize, { WindowSizeType } from "../../utils/useWindowSize";
 
 const DevProject = (props: ProjectInfo) => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
-    const windowSize = useWindowSize();
-    let isMobile = undefined;
-    if (windowSize.width !== undefined) {
-        isMobile = windowSize.width < 768;
-    }
+    // const windowSize = useWindowSize();
+    // let isMobile = undefined;
+    // if (windowSize.width !== undefined) {
+    //     isMobile = windowSize.width < 768;
+    // }
+    const [width, setWidth] = React.useState<number>(768);
+    React.useEffect(() => {
+        window.addEventListener("resize", () => {
+            setWidth(window.innerWidth);
+        });
+    }, []);
+    const isMobile = width < 768;
 
     return (
         <div
