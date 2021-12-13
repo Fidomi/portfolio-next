@@ -1,7 +1,7 @@
 @use "sass:math";
 @import "../../styles/variables";
 
-.map_container {
+.map {
     display: grid;
     width: 100%;
     grid-template-columns: math.div($size, 1.05);
@@ -39,15 +39,15 @@
     }
 }
 
-.map_container__dev {
+.map__dev {
     grid-area: dev;
 }
 
-.map_container__vfx {
+.map__vfx {
     grid-area: vfx;
 }
 
-.map_container__title {
+.map__title {
     grid-area: title;
     visibility: hidden;
     @include desktop {
@@ -56,9 +56,19 @@
     }
 }
 
-.map_container__projetsDev {
+.map__projetsDev {
     grid-area: projetsDev;
 }
-.map_container__projetsVfx {
+
+.map__projetsVfx {
     grid-area: projetsVfx;
+}
+
+.map__projetsVfx__element,
+.map__projetsDev__element {
+    transition: 0.3s;
+    &:hover {
+        transform: scale(1.01);
+        transform: translate(5px);
+    }
 }

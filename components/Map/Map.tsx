@@ -72,24 +72,22 @@ export default function Map() {
                     setTitle(defaultMessage);
                     setSubTitle("");
                 }}
-                className={`${styles.map_container} mx-auto  mt-8  justify-center`}>
+                className={`${styles.map} mx-auto  mt-8  justify-center`}>
                 <div
-                    className={`${styles.map_container__dev} font-sans text-sky-600 text-4xl mb-5 text-right sm:text-left border-b-2 border-sky-600`}>
+                    className={`${styles.map__dev} font-sans text-sky-600 text-4xl mb-5 text-right sm:text-left border-b-2 border-sky-600`}>
                     {language === "FR" ? "PROJETS DEV" : "DEV PROJECTS"}
                 </div>
                 <div
-                    className={`${styles.map_container__vfx} font-sans text-amber-600 text-4xl mb-5 text-left border-b-2 border-amber-600`}>
+                    className={`${styles.map__vfx} font-sans text-amber-600 text-4xl mb-5 text-left border-b-2 border-amber-600`}>
                     {language === "FR" ? "VFX/MOTION" : "VFX/MOTION"}
                 </div>
                 <div
-                    className={`${styles.map_container__projetsDev} flex flex-col justify-between content-between flex-wrap`}>
+                    className={`${styles.map__projetsDev} flex flex-col justify-between content-between flex-wrap`}>
                     {PROJECTS.map((project) => {
                         return project.dev ? (
                             <div
                                 key={"dev-" + project.id.toString()}
-                                className={
-                                    "w-full flex flex-col mx-auto overflow-hidden sm:w-col48 sm:h-row48 "
-                                }>
+                                className={`${styles.map__projetsDev__element} w-full flex flex-col mx-auto overflow-hidden sm:w-col48 sm:h-row48`}>
                                 <Link href="/projects" passHref>
                                     <a
                                         onMouseEnter={screenTitle}
@@ -122,14 +120,14 @@ export default function Map() {
                     })}
                 </div>
                 <div
-                    className={`${styles.map_container__projetsVfx} bg-red-200 flex flex-col justify-between`}>
+                    className={`${styles.map__projetsVfx} bg-red-200 flex flex-col justify-between`}>
                     {PROJECTS.map((project) => {
                         return project.dev ? (
                             ""
                         ) : (
                             <div
                                 key={"vfx-" + project.id.toString()}
-                                className={"flex flex-col mx-auto w-full "}>
+                                className={`${styles.map__projetsVfx__element} flex flex-col mx-auto w-full `}>
                                 <div
                                     className={
                                         "sm:max-h-20 lg:max-h-20 sm:overflow-hidden"
@@ -165,13 +163,13 @@ export default function Map() {
                 </div>
                 {projectType === "dev" ? (
                     <div
-                        className={`${styles.map_container__title} text-body text-left text-sky-600 flex flex-row justify-between items-center`}>
+                        className={`${styles.map__title} text-body text-left text-sky-600 flex flex-row justify-between items-center`}>
                         <p className="font-sans text-2xl uppercase">{title}</p>
                         <p className="font-body text-xl">{subtitle}</p>
                     </div>
                 ) : (
                     <div
-                        className={`${styles.map_container__title} text-body text-left text-amber-600 flex flex-row justify-between items-center`}>
+                        className={`${styles.map__title} text-body text-left text-amber-600 flex flex-row justify-between items-center`}>
                         <p className="font-sans text-2xl uppercase">{title}</p>
                         <p className="font-body text-xl">{subtitle}</p>
                     </div>
