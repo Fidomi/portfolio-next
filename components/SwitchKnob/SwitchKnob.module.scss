@@ -1,8 +1,13 @@
-.switch_container {
+@import "../../styles/variables";
+
+.switch {
     margin: 0 0.8rem;
+    @include tablet {
+        margin: 0 1.5rem;
+    }
 }
 
-#label {
+.switch__label {
     display: flex;
     width: 50px;
     height: 21px;
@@ -12,13 +17,20 @@
     cursor: pointer;
     position: relative;
     border-radius: 1rem;
+    @include tablet {
+        width: 54px;
+        height: 24px;
+    }
 }
 
-label .text {
+.switch__label__text {
     font-size: 12px;
+    @include tablet {
+        font-size: 14px;
+    }
 }
 
-.ball {
+.switch__label__ball {
     display: block;
     position: absolute;
     border-radius: 1rem;
@@ -37,31 +49,18 @@ label .text {
     color: #222;
     --default-border-radius: 8px;
     -webkit-text-size-adjust: 100%;
-}
-
-input:checked + label .ball {
-    transform: translateX(24px);
-}
-input:unchecked + label .ball {
-    transform: translateX(-28px);
-}
-.switchInput {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .switch_container {
-        margin: 0 1.5rem;
-    }
-    #label {
-        width: 54px;
-        height: 24px;
-    }
-    .ball {
+    @include tablet {
         height: 20px;
         width: 26px;
     }
-    label .text {
-        font-size: 14px;
-    }
+}
+
+input:checked + label .switch__label__ball {
+    transform: translateX(24px);
+}
+input:unchecked + label .switch__label__ball {
+    transform: translateX(-28px);
+}
+.switch__input {
+    display: none;
 }

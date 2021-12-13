@@ -1,0 +1,33 @@
+$size: 100vw;
+$maxSize: 800px;
+$maxMapSize: 840px;
+$maxVideoSize: 1000px;
+
+$largeMobile-width: 640px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$lgDesktop-width: 1280px;
+
+@mixin mobile {
+    @media (min-width: #{$largeMobile-width}) and (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin lgDesktop {
+    @media (min-width: #{$lgDesktop-width}) {
+        @content;
+    }
+}

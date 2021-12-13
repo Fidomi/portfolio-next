@@ -1,39 +1,26 @@
 @use "sass:math";
-$size: 100vw;
-$maxSize: 1000px;
+@import "../../styles/variables";
 
 .player_wrapper {
     position: relative;
     height: math.div($size * 0.97 * 9, 16);
     width: $size * 0.97;
-}
-
-@media (min-width: 640px) {
-    .player_wrapper {
+    @include mobile {
         height: math.div($size * 9, 16);
         width: $size;
     }
-}
-
-@media (min-width: 768px) and (min-height: 1024px) {
-    .player_wrapper {
+    @include tablet {
         height: math.div($size * 0.65 * 9, 16);
         width: $size * 0.65;
     }
-}
-
-@media (min-width: 1024px) {
-    .player_wrapper {
+    @include desktop {
         height: math.div($size * 0.75 * 9, 16);
         width: $size * 0.75;
     }
-}
-
-@media (min-width: 1280px) {
-    .player_wrapper {
+    @include lgDesktop {
         height: math.div($size * 0.8 * 9, 16);
         width: $size * 0.8;
-        max-width: $maxSize;
-        max-height: math.div($maxSize * 9, 16);
+        max-width: $maxVideoSize;
+        max-height: math.div($maxVideoSize * 9, 16);
     }
 }

@@ -48,7 +48,6 @@ export default function Map() {
         const newProject = PROJECTS.find(
             (ele) => ele.name === newName
         ) as Project;
-        console.log(newProject.name);
         changeProject(newProject);
     }
 
@@ -75,15 +74,15 @@ export default function Map() {
                 }}
                 className={`${styles.map_container} mx-auto  mt-8  justify-center`}>
                 <div
-                    className={`${styles.dev} font-sans text-sky-600 text-4xl mb-5 text-right sm:text-left border-b-2 border-sky-600`}>
+                    className={`${styles.map_container__dev} font-sans text-sky-600 text-4xl mb-5 text-right sm:text-left border-b-2 border-sky-600`}>
                     {language === "FR" ? "PROJETS DEV" : "DEV PROJECTS"}
                 </div>
                 <div
-                    className={`${styles.vfx} font-sans text-amber-600 text-4xl mb-5 text-left border-b-2 border-amber-600`}>
+                    className={`${styles.map_container__vfx} font-sans text-amber-600 text-4xl mb-5 text-left border-b-2 border-amber-600`}>
                     {language === "FR" ? "VFX/MOTION" : "VFX/MOTION"}
                 </div>
                 <div
-                    className={`${styles.projetsDev} flex flex-col justify-between content-between flex-wrap`}>
+                    className={`${styles.map_container__projetsDev} flex flex-col justify-between content-between flex-wrap`}>
                     {PROJECTS.map((project) => {
                         return project.dev ? (
                             <div
@@ -123,7 +122,7 @@ export default function Map() {
                     })}
                 </div>
                 <div
-                    className={`${styles.projetsVfx} bg-red-200 flex flex-col justify-between`}>
+                    className={`${styles.map_container__projetsVfx} bg-red-200 flex flex-col justify-between`}>
                     {PROJECTS.map((project) => {
                         return project.dev ? (
                             ""
@@ -166,13 +165,13 @@ export default function Map() {
                 </div>
                 {projectType === "dev" ? (
                     <div
-                        className={`${styles.title} text-body text-left text-sky-600 flex flex-row justify-between items-center`}>
+                        className={`${styles.map_container__title} text-body text-left text-sky-600 flex flex-row justify-between items-center`}>
                         <p className="font-sans text-2xl uppercase">{title}</p>
                         <p className="font-body text-xl">{subtitle}</p>
                     </div>
                 ) : (
                     <div
-                        className={`${styles.title} text-body text-left text-amber-600 flex flex-row justify-between items-center`}>
+                        className={`${styles.map_container__title} text-body text-left text-amber-600 flex flex-row justify-between items-center`}>
                         <p className="font-sans text-2xl uppercase">{title}</p>
                         <p className="font-body text-xl">{subtitle}</p>
                     </div>

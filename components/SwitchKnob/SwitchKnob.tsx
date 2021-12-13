@@ -15,11 +15,11 @@ const SwitchKnob = ({ project }: { project: Project }) => {
     };
 
     return (
-        <div className={`${style.switch_container}`}>
+        <div className={`${style.switch}`}>
             <input
                 type="checkbox"
                 id="switch"
-                className={`${style.switchInput}`}
+                className={`${style.switch__input}`}
                 onClick={(e) => handleClick(e)}
                 onChange={handleChange}
                 checked={isChecked}
@@ -28,31 +28,33 @@ const SwitchKnob = ({ project }: { project: Project }) => {
                 <label
                     htmlFor="switch"
                     id={`${style.label}`}
-                    className="border border-solid border-sky-600">
+                    className={`${style.switch__label} border border-solid border-sky-600`}>
                     <span
-                        className={`${style.text} ${style.en} font-body text-sky-600`}>
+                        className={`${style.switch__label__text} font-body text-sky-600`}>
                         EN
                     </span>
                     <span
-                        className={`${style.text} ${style.fr} font-body text-sky-600`}>
+                        className={`${style.switch__label__text} font-body text-sky-600`}>
                         FR
                     </span>
-                    <span className={`${style.ball} bg-sky-600`}></span>
+                    <span
+                        className={`${style.switch__label__ball} bg-sky-600`}></span>
                 </label>
             ) : (
                 <label
                     htmlFor="switch"
                     id={`${style.label}`}
-                    className="border border-solid border-amber-600 font-body">
+                    className={`${style.switch__label} border border-solid border-amber-600 font-body`}>
                     <span
-                        className={`${style.text} ${style.en} font-body text-amber-600`}>
+                        className={`${style.switch__label__text} font-body text-amber-600`}>
                         EN
                     </span>
                     <span
-                        className={`${style.text} ${style.fr} font-body text-amber-600`}>
+                        className={`${style.switch__label__text} font-body text-amber-600`}>
                         FR
                     </span>
-                    <span className={`${style.ball} bg-amber-600`}></span>
+                    <span
+                        className={`${style.switch__label__ball} bg-amber-600`}></span>
                 </label>
             )}
         </div>

@@ -16,17 +16,16 @@ const DevProject = (props: ProjectInfo) => {
     }
 
     return (
-        <div
-            className={`${styles.project_container} mx-auto font-body mt-4 md:mt-20`}>
+        <div className={`${styles.project} mx-auto font-body mt-4 md:mt-20`}>
             <div
-                className={`${styles.description} md:w-col90 md:px-0 md:text-lg mx-auto px-4 text-sky-600 text-base mb-4`}>
+                className={`${styles.project__description} md:w-col90 md:px-0 md:text-lg mx-auto px-4 text-sky-600 text-base mb-4`}>
                 <div>
                     {(props.project.desc as string[]).map((ele, index) => (
                         <p key={`str-${props.project.name}-${index}`}>{ele}</p>
                     ))}
                 </div>
             </div>
-            <div className={`${styles.img1} px-4 md:px-0`}>
+            <div className={`${styles.project__img1} px-4 md:px-0`}>
                 {isMobile &&
                     props.project.imgC[1] &&
                     props.project.imgC.map((ele, index) => {
@@ -67,7 +66,7 @@ const DevProject = (props: ProjectInfo) => {
                 )}
             </div>
 
-            <div className={`${styles.buttons}`}>
+            <div className={`${styles.project__buttons}`}>
                 <div className="flex flex-row justify-around mb-4">
                     {props.project.preview && (
                         <a
@@ -96,7 +95,8 @@ const DevProject = (props: ProjectInfo) => {
                 </div>
             </div>
 
-            <div className={`${styles.technical_sheet} md:w-col90 mx-auto`}>
+            <div
+                className={`${styles.project__technical_sheet} md:w-col90 mx-auto`}>
                 <div className="font-bold md:text-lg text-sky-600 px-4">
                     {language === "EN" ? "TECHNICAL SHEET" : "FICHE TECHNIQUE"}
                 </div>
@@ -113,7 +113,8 @@ const DevProject = (props: ProjectInfo) => {
                 </div>
             </div>
 
-            <div className={`${styles.technologies} md:w-col90 md:mx-auto`}>
+            <div
+                className={`${styles.project__technologies} md:w-col90 md:mx-auto`}>
                 <div className="md:text-lg font-bold text-sky-600 px-4">
                     TECHNOLOGIES
                 </div>

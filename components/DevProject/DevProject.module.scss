@@ -1,8 +1,7 @@
 @use "sass:math";
-$size: 100vw;
-$maxSize: 800px;
+@import "../../styles/variables";
 
-.project_container {
+.project {
     display: grid;
     grid-template-areas:
         "b b b b"
@@ -13,46 +12,34 @@ $maxSize: 800px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto auto auto auto;
     gap: 2px;
+    @include desktop {
+        max-width: 1024px;
+    }
 }
 
-.img1 {
+.project__img1 {
     margin: 0 auto;
     grid-area: a;
+    @include tablet {
+        max-width: $size * 0.9;
+    }
+    @include desktop {
+        max-width: 960px;
+    }
 }
 
-.description {
+.project__description {
     grid-area: b;
 }
 
-.technical_sheet {
+.project__technical_sheet {
     grid-area: c;
 }
 
-.technologies {
+.project__technologies {
     grid-area: d;
 }
 
-.buttons {
+.project__buttons {
     grid-area: e;
-}
-@media (min-width: 640px) {
-    // .img1 {
-    //     max-height: math.div($size * 9, 16);
-    //     max-width: $size;
-    // }
-}
-
-@media (min-width: 768px) {
-    .img1 {
-        max-width: $size * 0.9;
-    }
-}
-
-@media (min-width: 1024px) {
-    .project_container {
-        max-width: 1024px;
-    }
-    .img1 {
-        max-width: 960px;
-    }
 }

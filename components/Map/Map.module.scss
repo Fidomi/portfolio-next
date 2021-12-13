@@ -1,6 +1,5 @@
 @use "sass:math";
-$size: 100vw;
-$maxSize: 840px;
+@import "../../styles/variables";
 
 .map_container {
     display: grid;
@@ -14,30 +13,7 @@ $maxSize: 840px;
         "projetsVfx"
         "title";
     gap: 5px;
-}
-
-.dev {
-    grid-area: dev;
-}
-
-.vfx {
-    grid-area: vfx;
-}
-
-.title {
-    grid-area: title;
-    visibility: hidden;
-}
-
-.projetsDev {
-    grid-area: projetsDev;
-}
-.projetsVfx {
-    grid-area: projetsVfx;
-}
-
-@media (min-width: 640px) {
-    .map_container {
+    @include mobile {
         width: 100%;
         grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
         grid-template-rows: 4.25em math.div($size, 1.1) 2em;
@@ -47,16 +23,13 @@ $maxSize: 840px;
             "title title";
         gap: 10px;
     }
-}
-
-@media (min-width: 1024px) {
-    .map_container {
+    @include desktop {
         width: 90vw;
         max-width: 840px;
         margin: 0 auto;
         grid-template-columns: 60% 30%;
         grid-template-rows:
-            4.25em minmax(math.div($maxSize, 2), math.div($maxSize, 1.64))
+            4.25em minmax(math.div($maxMapSize, 2), math.div($maxMapSize, 1.64))
             4.5rem;
         grid-template-areas:
             "dev vfx"
@@ -64,8 +37,28 @@ $maxSize: 840px;
             "title title";
         gap: 6px;
     }
-    .title {
+}
+
+.map_container__dev {
+    grid-area: dev;
+}
+
+.map_container__vfx {
+    grid-area: vfx;
+}
+
+.map_container__title {
+    grid-area: title;
+    visibility: hidden;
+    @include desktop {
         grid-area: title;
         visibility: visible;
     }
+}
+
+.map_container__projetsDev {
+    grid-area: projetsDev;
+}
+.map_container__projetsVfx {
+    grid-area: projetsVfx;
 }
