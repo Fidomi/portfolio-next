@@ -10,18 +10,11 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
     try {
         createServer((req, res) => {
-            // Be sure to pass `true` as the second argument to `url.parse`.
-            // This tells it to parse the query portion of the URL.
             const parsedUrl = parse(req.url, true);
             const { pathname, query } = parsedUrl;
-
-            if (pathname === "/about") {
-                app.render(req, res, "/about", query);
-            } else if (pathname === "/projects") {
-                app.render(req, res, "/projects", query);
-            } else {
-                handle(req, res, parsedUrl);
-            }
+            pathname?.length
+                ? app.render(req, res, pathname, query)
+                : handle(req, res, parsedUrl);
         }).listen(8080, (err) => {
             if (err) throw err;
             console.log("> Ready on http://localhost:8080");
