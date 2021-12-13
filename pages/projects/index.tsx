@@ -1,6 +1,5 @@
 import React from "react";
 import { Layout } from "../../components/Layout";
-import styles from "./Projects.module.scss";
 import { ShowedProjectContext } from "../../utils/context";
 import { LanguageContext } from "../../utils/languageContext";
 import VideoProject from "../../components/VideoProject/VideoProject";
@@ -77,7 +76,7 @@ export default function Project() {
             </div>
             <div
                 className={`container z-0 w-full mx-auto mt-32 md:mt-20 md:min-h-min75`}>
-                <div className={`${styles.project} px-2 w-full h-full mt-3`}>
+                <div className={`overflow-hidden px-2 w-full h-full mt-3`}>
                     {project.dev ? (
                         <DevProject
                             project={project}
