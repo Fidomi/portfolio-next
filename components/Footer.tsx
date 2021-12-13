@@ -3,7 +3,7 @@ import { LanguageContext } from "../utils/languageContext";
 import { ShowedProjectContext } from "../utils/context";
 import { PROJECTS_EN, PROJECTS_FR, Project } from "../data/projects";
 
-const Footer = ({ bgColor }: { bgColor: string }) => {
+const Footer = () => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const { project, changeProject } = React.useContext(ShowedProjectContext);
     const resetProject = () => {
@@ -15,7 +15,7 @@ const Footer = ({ bgColor }: { bgColor: string }) => {
         project.dev === true ? "border-sky-600" : "border-amber-600";
     return (
         <footer
-            className={`flex-shrink-0 w-full mt-auto pt-2 pb-2 ${bgColor} max-h-30 md:max-h-36 border-t-2 border-dotted border-solid ${borderColor} self-end`}>
+            className={`flex-shrink-0 w-full mt-auto pt-2 pb-2 bg-warmGray-200 max-h-30 md:max-h-36 border-t-2 border-dotted border-solid ${borderColor} self-end`}>
             <div className="flex flex-row flex-wrap  w-full justify-between px-5 items-end text-lg font-body md:flex-nowrap">
                 {project.dev === true ? (
                     <div className="text-sky-600 flex order-1 flex-50 flex-col text-sm md:text-base md:order-1 md:flex-25">

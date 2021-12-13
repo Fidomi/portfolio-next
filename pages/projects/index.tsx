@@ -41,7 +41,7 @@ export default function Project() {
     };
 
     return (
-        <Layout curColor="bg-warmGray-200">
+        <Layout>
             <div
                 className={`flex flex-row w-full justify-between p-2 fixed bg-warmGray-200 z-10`}>
                 <ArrowLeftIcon

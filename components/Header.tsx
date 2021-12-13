@@ -5,7 +5,7 @@ import { LanguageContext } from "../utils/languageContext";
 import { ShowedProjectContext } from "../utils/context";
 import { PROJECTS_EN, PROJECTS_FR, Project } from "../data/projects";
 
-function Header({ bgColor }: { bgColor: string }) {
+function Header() {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const { project, changeProject } = React.useContext(ShowedProjectContext);
     const resetProject = () => {
@@ -14,8 +14,9 @@ function Header({ bgColor }: { bgColor: string }) {
             : changeProject(PROJECTS_EN[6]);
     };
     return (
-        <div className={`w-full py-3 ${bgColor} max-h-20 fixed z-30`}>
-            <header className="flex flex-row justify-between px-4 items-center ">
+        <div
+            className={` mt-auto w-screen py-3 bg-warmGray-200 max-h-20 fixed z-30`}>
+            <header className="flex flex-row justify-between px-4 items-center mx-auto  ">
                 <Link href="/">
                     {project.dev === true ? (
                         <a
