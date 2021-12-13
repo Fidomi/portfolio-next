@@ -13,7 +13,7 @@
         "projetsVfx"
         "title";
     gap: 5px;
-    @include mobile {
+    @include tablet {
         width: 100%;
         grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
         grid-template-rows: 4.25em math.div($size, 1.1) 2em;

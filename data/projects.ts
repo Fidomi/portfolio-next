@@ -56,10 +56,6 @@ export type Project = {
     code?: boolean; //is there a github repo?
     github?: string;
 };
-export interface ProjectInfo {
-    project: Project;
-    color: string;
-}
 
 export const PROJECTS_EN: Project[] = [
     {

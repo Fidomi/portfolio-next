@@ -8,23 +8,11 @@ import { PROJECTS_EN, PROJECTS_FR } from "../../data/projects";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/solid";
 
 function makeColors(dev: boolean) {
-    let [curColor, curColorDark, textColor, textColorDark, borderColor] =
+    let [textColor, textColorDark, borderColor] =
         dev === true
-            ? [
-                  "bg-warmGray-200",
-                  "bg-sky-600",
-                  "text-sky-600",
-                  "text-sky-800",
-                  "border-sky-600",
-              ]
-            : [
-                  "bg-warmGray-200",
-                  "bg-amber-600",
-                  "text-amber-600",
-                  "text-amber-800",
-                  "border-amber-600",
-              ];
-    return [curColor, curColorDark, textColor, textColorDark, borderColor];
+            ? ["text-sky-600", "text-sky-800", "border-sky-600"]
+            : ["text-amber-600", "text-amber-800", "border-amber-600"];
+    return [textColor, textColorDark, borderColor];
 }
 
 export default function Project() {
@@ -32,8 +20,7 @@ export default function Project() {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
-    let [curColor, curColorDark, textColor, textColorDark, borderColor] =
-        makeColors(project.dev);
+    let [textColor, textColorDark, borderColor] = makeColors(project.dev);
 
     const prevProject = () => {
         const curIndex = project.id - 1;
@@ -54,7 +41,7 @@ export default function Project() {
     };
 
     return (
-        <Layout curColor={curColor}>
+        <Layout curColor="bg-warmGray-200">
             <div
                 className={`flex flex-row w-full justify-between p-2 fixed bg-warmGray-200 z-10`}>
                 <ArrowLeftIcon
@@ -80,15 +67,11 @@ export default function Project() {
                     {project.dev ? (
                         <DevProject
                             project={project}
-                            color={curColor}
                             key={`devproject_${project.name}`}
                         />
                     ) : (
                         <VideoProject
                             project={project}
-                            color={curColor}
-                            textColor={textColor}
-                            textColorDark={textColorDark}
                             key={`videoproject_${project.name}`}
                         />
                     )}

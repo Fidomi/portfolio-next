@@ -6,13 +6,12 @@ import { LanguageContext } from "../../utils/languageContext";
 import { ABOUT_EN, ABOUT_FR } from "../../data/about";
 
 const About = () => {
-    const curColor: string = "bg-warmGray-200";
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const ABOUT = language === "FR" ? ABOUT_FR : ABOUT_EN;
     return (
-        <Layout curColor={curColor}>
+        <Layout curColor="bg-warmGray-200">
             <div
-                className={`container mt-8 max-w-xl lg:max-w-922 lg:mt-32 px-4 flex flex-column justify-center bg-${curColor}`}>
+                className={`container mt-8 max-w-xl lg:max-w-922 lg:mt-32 px-4 flex flex-column justify-center bg-warmGray-200`}>
                 <div className="lg:px-4 max-w-screen-lg">
                     <div className="flex flex-col md:flex-row md:justify-between">
                         <h1 className="text-base order-2 md:order-1 font-medium text-sky-600 md:text-2xl lg:text-4xl">
