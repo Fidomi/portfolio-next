@@ -26,7 +26,8 @@ const DevProject = ({ project }: { project: Project }) => {
                 </div>
             </div>
             <div className={`${styles.project__img1} px-4 md:px-0`}>
-                {project.imgC[1] &&
+                {isMobile &&
+                    project.imgC[1] &&
                     project.imgC.map((ele, index) => {
                         if (index < 3) {
                             return (
