@@ -15,7 +15,7 @@ function Header() {
     };
     return (
         <div
-            className={` mt-auto w-screen py-3 bg-warmGray-200 max-h-20 fixed z-30`}>
+            className={` mt-auto w-screen py-3 bg-warmGray-200 max-h-20 fixed z-30 lg:px-5`}>
             <header className="flex flex-row justify-between px-4 items-center mx-auto  ">
                 <Link href="/">
                     {project.dev === true ? (

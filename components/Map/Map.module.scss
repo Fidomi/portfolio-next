@@ -5,7 +5,7 @@
     display: grid;
     width: 100%;
     grid-template-columns: math.div($size, 1.05);
-    grid-template-rows: 4.25em auto 4.25em auto 2em;
+    grid-template-rows: 4em auto 4.25em auto 2em;
     grid-template-areas:
         "dev "
         "projetsDev"
@@ -16,7 +16,7 @@
     @include tablet {
         width: 100%;
         grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
-        grid-template-rows: 4.25em math.div($size, 1.1) 2em;
+        grid-template-rows: 4em math.div($size, 1.1) 2em;
         grid-template-areas:
             "dev vfx"
             "projetsDev projetsVfx"
@@ -29,7 +29,7 @@
         margin: 0 auto;
         grid-template-columns: 60% 30%;
         grid-template-rows:
-            4.25em minmax(math.div($maxMapSize, 2), math.div($maxMapSize, 1.64))
+            3.5em minmax(math.div($maxMapSize, 2), math.div($maxMapSize, 1.64))
             4.5rem;
         grid-template-areas:
             "dev vfx"

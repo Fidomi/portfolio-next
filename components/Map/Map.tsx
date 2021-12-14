@@ -57,8 +57,8 @@ export default function Map() {
                 <h1
                     className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight my-5 sm:text-3xl mx-auto`}>
                     Bienvenue sur mon portfolio! Je suis Sidonie,{" "}
-                    <strong>développeuse frontend</strong> avec des compétences
-                    en effets spéciaux numériques.
+                    <strong>développeuse frontend</strong>, aspirante fullstack
+                    js, avec des compétences en effets spéciaux numériques.
                 </h1>
             ) : (
                 <h1
@@ -74,11 +74,11 @@ export default function Map() {
                 }}
                 className={`${styles.map} mx-auto  mt-8  justify-center`}>
                 <div
-                    className={`${styles.map__dev} font-sans text-sky-600 text-4xl mb-5 text-right sm:text-left border-b-2 border-sky-600`}>
+                    className={`${styles.map__dev} font-sans text-sky-600 text-4xl mb-2 text-right sm:text-left border-b-2 border-sky-600`}>
                     {language === "FR" ? "PROJETS DEV" : "DEV PROJECTS"}
                 </div>
                 <div
-                    className={`${styles.map__vfx} font-sans text-amber-600 text-4xl mb-5 text-left border-b-2 border-amber-600`}>
+                    className={`${styles.map__vfx} font-sans text-amber-600 text-4xl mb-2 text-left border-b-2 border-amber-600`}>
                     {language === "FR" ? "VFX/MOTION" : "VFX/MOTION"}
                 </div>
                 <div
