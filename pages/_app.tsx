@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <LanguageProvider>
             <ShowedProjectProvider>
                 <Head>
+                    <link rel="shortcut icon" href="../public/favicon.ico" />
                     <title>SidonieM</title>
                 </Head>
                 <Component {...pageProps} />
