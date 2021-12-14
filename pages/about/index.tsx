@@ -9,7 +9,7 @@ const About = () => {
     const { language, changeLanguage } = React.useContext(LanguageContext);
     const ABOUT = language === "FR" ? ABOUT_FR : ABOUT_EN;
     return (
-        <Layout curColor="bg-warmGray-200">
+        <Layout>
             <div
                 className={`container mt-8 max-w-xl lg:max-w-922 lg:mt-32 px-4 flex flex-column justify-center bg-warmGray-200`}>
                 <div className="lg:px-4 max-w-screen-lg">
