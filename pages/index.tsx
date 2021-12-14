@@ -5,7 +5,7 @@ import Map from "../components/Map/Map";
 export default function Home() {
     const curColor: string = "bg-warmGray-200";
     return (
-        <Layout curColor={curColor}>
+        <Layout>
             <div className={`container px-4 mx-auto ${curColor}`}>
                 <Map />
             </div>
