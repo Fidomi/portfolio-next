@@ -1,7 +1,7 @@
 # Fidomi's portfolio
 
-This is my portfolio website that will soon be available here : [a link] (https://sidoniem.com)
-It wil show my works as a front-end developer and my old works as a compositing artist for visual special effects.
+This is my portfolio website is available here : [a link] (https://sidoniem.com)
+It shows my works as a front-end developer and my old works as a compositing artist for visual special effects.
 
 # Technologies I use
 
@@ -12,6 +12,6 @@ It wil show my works as a front-end developer and my old works as a compositing 
 
 # Still to do
 
--   Add React Spring : scroll with touch events
--   Tests
+-   Adding somes animations with gsap
+-   Tests with jest
 -   ...
