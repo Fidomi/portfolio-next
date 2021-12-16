@@ -15,7 +15,7 @@
         "title";
     gap: 5px;
     padding-right: 10px;
-    @include tablet {
+    @include mobile {
         width: 100%;
         grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
         grid-template-rows: 4em math.div($size, 1.1) 2em;
