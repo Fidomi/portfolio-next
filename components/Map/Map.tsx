@@ -52,17 +52,17 @@ export default function Map() {
     }
 
     return (
-        <div className="mx-auto mt-12">
+        <div className="mx-auto w-full">
             {language === "FR" ? (
                 <h1
-                    className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight my-5 sm:text-3xl mx-auto`}>
+                    className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight pb-5 md:px-5 mx-auto`}>
                     Bienvenue sur mon portfolio! Je suis Sidonie,{" "}
                     <strong>développeuse frontend</strong>, aspirante fullstack
                     js, avec des compétences en effets spéciaux numériques.
                 </h1>
             ) : (
                 <h1
-                    className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight my-5 sm:text-3xl mx-auto`}>
+                    className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight pb-5 mx-auto`}>
                     Welcome to my portfolio! {`I'm`} Sidonie,{" "}
                     <strong>frontend developer</strong> with skills in VFX.
                 </h1>
@@ -72,7 +72,7 @@ export default function Map() {
                     setTitle(defaultMessage);
                     setSubTitle("");
                 }}
-                className={`${styles.map} mx-auto  mt-8  justify-center`}>
+                className={`${styles.map} mx-auto justify-center`}>
                 <div
                     className={`${styles.map__dev} font-sans text-sky-600 text-4xl mb-2 text-right sm:text-left border-b-2 border-sky-600`}>
                     {language === "FR" ? "PROJETS DEV" : "DEV PROJECTS"}
@@ -120,7 +120,7 @@ export default function Map() {
                     })}
                 </div>
                 <div
-                    className={`${styles.map__projetsVfx} bg-red-200 flex flex-col justify-between`}>
+                    className={`${styles.map__projetsVfx} flex flex-col justify-between`}>
                     {PROJECTS.map((project) => {
                         return project.dev ? (
                             ""

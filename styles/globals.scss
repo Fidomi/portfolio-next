@@ -9,4 +9,9 @@ html {
     background-color: #e7e5e4;
     width: 100vw;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }

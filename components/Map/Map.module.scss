@@ -4,6 +4,7 @@
 .map {
     display: grid;
     width: 100%;
+    max-width: 100%;
     grid-template-columns: math.div($size, 1.05);
     grid-template-rows: 4em auto 4.25em auto 2em;
     grid-template-areas:
@@ -13,6 +14,7 @@
         "projetsVfx"
         "title";
     gap: 5px;
+    padding-right: 10px;
     @include tablet {
         width: 100%;
         grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
@@ -24,9 +26,8 @@
         gap: 10px;
     }
     @include desktop {
-        width: 90vw;
+        width: 90%;
         max-width: 840px;
-        margin: 0 auto;
         grid-template-columns: 60% 30%;
         grid-template-rows:
             3.5em minmax(math.div($maxMapSize, 2), math.div($maxMapSize, 1.64))
