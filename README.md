@@ -12,6 +12,6 @@ It shows my works as a front-end developer and my old works as a compositing art
 
 # Still to do
 
--   Adding somes animations with gsap
+-   Adding somes animation with gsap
 -   Tests with jest
 -   ...
