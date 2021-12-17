@@ -12,7 +12,11 @@ class MyDocument extends Document {
                         content="initial-scale=1.0, width=device-width"
                     />
                     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-                    <link rel="icon" type="image/png" href="/code.png" />
+                    <link
+                        rel="icon"
+                        type="image/png"
+                        href="/favicon-32x32.png"
+                    />
                 </Head>
 
                 <body className="bg-[#0e0c0b]">
