@@ -16,7 +16,7 @@ const DevProject = ({ project }: { project: Project }) => {
     }
 
     return (
-        <div className={`${styles.project} mx-auto font-body mt-4 md:mt-20`}>
+        <div className={`${styles.project} mx-auto font-body mt-4 md:mt-24`}>
             <div
                 className={`${styles.project__description} md:w-col90 md:px-0 md:text-lg mx-auto px-4 text-sky-600 text-base mb-4`}>
                 <div>

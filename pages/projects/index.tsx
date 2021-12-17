@@ -63,7 +63,7 @@ export default function Project() {
             </div>
             <div
                 className={`container z-0 w-full mx-auto mt-32 md:mt-20 md:min-h-min75`}>
-                <div className={`overflow-hidden px-2 w-full h-full mt-3`}>
+                <div className={`px-2 w-full h-full mt-3 overflow-y-hidden`}>
                     {project.dev ? (
                         <DevProject
                             project={project}
