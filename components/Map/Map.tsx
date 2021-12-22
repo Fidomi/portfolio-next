@@ -52,7 +52,7 @@ export default function Map() {
     }
 
     return (
-        <div className="mx-auto w-full">
+        <div className="w-full mx-auto pt-8 md:pt-0  px-2">
             {language === "FR" ? (
                 <h1
                     className={`${styles.portfolio_title} lg:max-w-760 text-sky-600 subpixel-antialiased font-body font-normal text-3xl leading-9 tracking-tight pb-5 md:px-5 mx-auto`}>

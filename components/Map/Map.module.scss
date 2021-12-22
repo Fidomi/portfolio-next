@@ -14,7 +14,6 @@
         "projetsVfx"
         "title";
     gap: 5px;
-    padding-right: 10px;
     @include mobile {
         width: 100%;
         grid-template-columns: math.div($size, 1.6) math.div($size, 3.2);
