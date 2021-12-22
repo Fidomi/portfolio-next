@@ -397,9 +397,8 @@ export const PROJECTS_FR: Project[] = [
         title: "Ailleurs",
         subtitle: "Quel coin de France vous correspond le mieux?",
         desc: [
-            "Ce projet propose un petit questionnaire à l'utilisateur pour mieux cerner ses attentes quand à son cadre de vie.",
-            "En fonction de ses réponses, une carte de France est générée avec le palmarès des départements les plus en phase avec l'utilisateur.",
-            "On peut aussi consulter des cartes thématiques : sécurité, vie de famille et environnement.",
+            "Ce projet propose un petit questionnaire à l'utilisateur pour mieux cerner ses attentes quant à son cadre de vie.",
+            "En fonction de ses réponses, une carte de France est générée avec le palmarès des départements les plus en phase avec l'utilisateur. Il est aussi proposé de consulter des cartes thématiques : sécurité, vie de famille et environnement.",
         ],
         name: "ailleurs",
         img: [ailleurs_C],

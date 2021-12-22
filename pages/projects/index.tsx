@@ -49,9 +49,9 @@ export default function Project() {
                     className={`${textColor} hover:${textColorDark} w-6 md:w-10`}
                 />
                 <div
-                    className={` mt-5 p-2 text-center border-double border-b-2 ${borderColor}`}>
+                    className={`mt-5 p-2 text-center border-double border-b-2 ${borderColor}`}>
                     <h1
-                        className={`${textColor} text-3xl sm:text-4xl md:text-5xl font-sans uppercase`}>
+                        className={`${textColor} text-2xl sm:text-3xl md:text-5xl font-sans uppercase`}>
                         {project.title}
                     </h1>
                     <p className={`${textColor}`}>{project.subtitle}</p>

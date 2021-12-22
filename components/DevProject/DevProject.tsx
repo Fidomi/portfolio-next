@@ -16,12 +16,16 @@ const DevProject = ({ project }: { project: Project }) => {
     }
 
     return (
-        <div className={`${styles.project} mx-auto font-body mt-4 md:mt-24`}>
+        <div className={`${styles.project} mx-auto font-body mt-4 md:mt-36`}>
             <div
                 className={`${styles.project__description} md:w-col90 md:px-0 md:text-lg mx-auto px-4 text-sky-600 text-base mb-4`}>
                 <div>
                     {(project.desc as string[]).map((ele, index) => (
-                        <p key={`str-${project.name}-${index}`}>{ele}</p>
+                        <p
+                            key={`str-${project.name}-${index}`}
+                            className="mt-2">
+                            {ele}
+                        </p>
                     ))}
                 </div>
             </div>
@@ -113,7 +117,7 @@ const DevProject = ({ project }: { project: Project }) => {
                 <div className="md:text-lg font-bold text-sky-600 px-4">
                     TECHNOLOGIES
                 </div>
-                <div className="md:flex mb-4">
+                <div className="md:flex flex-wrap mb-4">
                     {(project.technologies as string[]).map((ele, index) => (
                         <p
                             key={`str2-${project.name}-${index}`}
