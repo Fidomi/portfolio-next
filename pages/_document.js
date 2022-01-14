@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
     render() {
         return (
-            <Html lang="fr">
+            <Html lang="en">
                 <Head>
                     <meta charSet="utf-8" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -11,12 +11,7 @@ class MyDocument extends Document {
                         name="viewport"
                         content="initial-scale=1.0, width=device-width"
                     />
-                    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-                    <link
-                        rel="icon"
-                        type="image/png"
-                        href="/favicon-32x32.png"
-                    />
+                    <link rel="shortcut icon" href="/favicon.ico" />
                 </Head>
 
                 <body className="bg-[#0e0c0b]">
