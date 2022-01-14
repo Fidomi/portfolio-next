@@ -23,12 +23,12 @@ export default function Map() {
     }, []);
 
     function screenTitle(event: React.SyntheticEvent): void {
-        event.preventDefault();
-        const newTitle = (event.target as HTMLElement).getAttribute("title");
-        const newName = (event.target as HTMLElement).getAttribute(
-            "data-name"
-        ) as string;
-        const newSubTitle = (event.target as HTMLElement).getAttribute(
+        let targetElement = (event.target as HTMLElement).hasAttribute("title")
+            ? (event.target as HTMLElement)
+            : ((event.target as HTMLElement).parentElement as HTMLElement);
+        const newTitle = targetElement.getAttribute("title");
+        const newName = targetElement.getAttribute("data-name") as string;
+        const newSubTitle = targetElement.getAttribute(
             "data-subtitle"
         ) as string;
         const newProject = PROJECTS.find(
@@ -87,7 +87,7 @@ export default function Map() {
                         return project.dev ? (
                             <div
                                 key={"dev-" + project.id.toString()}
-                                className={`${styles.map__projetsDev__element} w-full flex flex-col mx-auto overflow-hidden sm:w-col48 sm:h-row48`}>
+                                className={`${styles.map__projetsDev__element} ${styles.hoverwrap} w-full flex flex-col mx-auto overflow-hidden sm:w-col48 sm:h-row48`}>
                                 <Link href="/projects" passHref>
                                     <a
                                         onMouseEnter={screenTitle}
@@ -102,6 +102,18 @@ export default function Map() {
                                             layout="responsive"
                                             sizes="100vw"
                                         />
+                                        <div
+                                            className={`${styles.DEV__hovercap}`}
+                                            title={project.title}
+                                            data-subtitle={project.subtitle}
+                                            data-name={project.name}>
+                                            <p className="font-sans text-2xl uppercase">
+                                                {title}
+                                            </p>
+                                            <p className="font-body text-xl">
+                                                {subtitle}
+                                            </p>
+                                        </div>
                                     </a>
                                 </Link>
                                 <div
@@ -127,7 +139,7 @@ export default function Map() {
                         ) : (
                             <div
                                 key={"vfx-" + project.id.toString()}
-                                className={`${styles.map__projetsVfx__element} flex flex-col mx-auto w-full `}>
+                                className={`${styles.map__projetsVfx__element} ${styles.hoverwrap} flex flex-col mx-auto w-full `}>
                                 <div
                                     className={
                                         "sm:max-h-20 lg:max-h-20 sm:overflow-hidden"
@@ -145,6 +157,18 @@ export default function Map() {
                                                 data-subtitle={project.subtitle}
                                                 data-name={project.name}
                                             />
+                                            <div
+                                                className={`${styles.VFX__hovercap}`}
+                                                title={project.title}
+                                                data-subtitle={project.subtitle}
+                                                data-name={project.name}>
+                                                <p className="font-sans text-body uppercase">
+                                                    {title}
+                                                </p>
+                                                <p className="font-body text-sm">
+                                                    {subtitle}
+                                                </p>
+                                            </div>
                                         </a>
                                     </Link>
                                 </div>

@@ -72,3 +72,31 @@
         transform: translate(5px);
     }
 }
+
+.DEV__hovercap,
+.VFX__hovercap {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    color: white;
+    visibility: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.DEV__hovercap {
+    padding: 10px;
+    bottom: 1em;
+    background-color: rgba(28, 60, 95, 0.87);
+}
+
+.VFX__hovercap {
+    background-color: rgba(150, 65, 9, 0.87);
+    bottom: 0.5em;
+}
+
+.hoverwrap:hover .DEV__hovercap,
+.hoverwrap:hover .VFX__hovercap {
+    visibility: visible;
+    opacity: 1;
+}
