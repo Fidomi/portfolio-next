@@ -79,7 +79,7 @@
     width: 100%;
     position: absolute;
     color: white;
-    visibility: none;
+    display: none;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -97,6 +97,6 @@
 
 .hoverwrap:hover .DEV__hovercap,
 .hoverwrap:hover .VFX__hovercap {
-    visibility: visible;
+    display: inline-block;
     opacity: 1;
 }

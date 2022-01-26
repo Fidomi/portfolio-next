@@ -5,6 +5,7 @@ import { ShowedProjectContext } from "../../utils/context";
 import Link from "next/link";
 import { LanguageContext } from "../../utils/languageContext";
 import Image from "next/dist/client/image";
+import { redirect } from "next/dist/server/api-utils";
 
 export default function Map() {
     const { project, changeProject } = useContext(ShowedProjectContext);
