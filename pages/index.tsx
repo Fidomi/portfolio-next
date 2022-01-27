@@ -6,12 +6,8 @@ import { LanguageProvider } from "../utils/languageContext";
 
 export default function Home() {
     return (
-        <LanguageProvider>
-            <ShowedProjectProvider>
-                <Layout>
-                    <Map />
-                </Layout>
-            </ShowedProjectProvider>
-        </LanguageProvider>
+        <Layout>
+            <Map />
+        </Layout>
     );
 }

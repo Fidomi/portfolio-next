@@ -9,8 +9,10 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
     try {
+        console.log("Server PORT :", process.env.PORT);
         createServer((req, res) => {
             const parsedUrl = parse(req.url, true);
+            console.log("parsedUrl :", parsedUrl);
             const { pathname, query } = parsedUrl;
             pathname?.length
                 ? app.render(req, res, pathname, query)
@@ -20,6 +22,7 @@ app.prepare().then(() => {
             console.log("> Ready on http://localhost:8080");
         });
     } catch (error) {
+        console.log(error.message);
         console.error(error);
     }
 });

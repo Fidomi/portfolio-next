@@ -4,7 +4,7 @@ import "../styles/globals.scss";
 import { ShowedProjectProvider } from "../utils/context";
 import { LanguageProvider } from "../utils/languageContext";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
