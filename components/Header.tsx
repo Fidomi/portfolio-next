@@ -7,18 +7,20 @@ import { PROJECTS_EN, PROJECTS_FR, Project } from "../data/projects";
 
 function Header() {
     const { language, changeLanguage } = React.useContext(LanguageContext);
-    const { project, changeProject } = React.useContext(ShowedProjectContext);
+    const { currProject, changeProject } = React.useContext(ShowedProjectContext);
+
     const resetProject = () => {
+        if(changeProject!==undefined){
         language === "FR"
             ? changeProject(PROJECTS_FR[6])
-            : changeProject(PROJECTS_EN[6]);
+            : changeProject(PROJECTS_EN[6]);}
     };
     return (
         <div
             className={`mx-auto w-full py-4 bg-warmGray-200 h-auto md:max-h-24 fixed z-30 overflow-x-hidden`}>
             <header className="flex flex-row justify-between px-4 items-center mx-auto  ">
                 <Link href="/">
-                    {project.dev === true ? (
+                    {currProject.dev === true ? (
                         <a
                             className="font-sans text-sky-600 text-2xl md:text-4xl"
                             onClick={resetProject}>
@@ -33,9 +35,9 @@ function Header() {
                     )}
                 </Link>
                 <div className={`flex items-center justify-end`}>
-                    <SwitchKnob project={project} />
+                    <SwitchKnob project={currProject} />
                     <Link href="/about">
-                        {project.dev === true ? (
+                        {currProject.dev === true ? (
                             <a
                                 onClick={resetProject}
                                 className="text-base md:text-lg w-20 text-sky-600 text-right md:w-32 font-body md:text-2xl">

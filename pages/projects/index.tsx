@@ -16,27 +16,30 @@ function makeColors(dev: boolean) {
 }
 
 export default function Project() {
-    const { project, changeProject } = React.useContext(ShowedProjectContext);
+    const { currProject, changeProject } = React.useContext(ShowedProjectContext);
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
 
-    let [textColor, textColorDark, borderColor] = makeColors(project.dev);
+    let [textColor, textColorDark, borderColor] = makeColors(currProject.dev);
 
     const prevProject = () => {
-        const curIndex = project.id - 1;
+        const curIndex = currProject.id - 1;
+        if(changeProject !== undefined){
         if (curIndex == 0) {
             changeProject(PROJECTS[9]);
         } else {
             changeProject(PROJECTS[curIndex - 1]);
-        }
+        }}
     };
 
     const nextProject = () => {
-        const curIndex = project.id - 1;
-        if (curIndex === 9) {
-            changeProject(PROJECTS[0]);
-        } else {
-            changeProject(PROJECTS[curIndex + 1]);
+        const curIndex = currProject.id - 1;
+        if (changeProject !== undefined) {
+            if (curIndex === 9) {
+                changeProject(PROJECTS[0]);
+            } else {
+                changeProject(PROJECTS[curIndex + 1]);
+            }
         }
     };
 
@@ -52,9 +55,9 @@ export default function Project() {
                     className={`mt-5 p-2 text-center border-double border-b-2 ${borderColor}`}>
                     <h1
                         className={`${textColor} text-2xl sm:text-3xl md:text-5xl font-sans uppercase`}>
-                        {project.title}
+                        {currProject.title}
                     </h1>
-                    <p className={`${textColor}`}>{project.subtitle}</p>
+                    <p className={`${textColor}`}>{currProject.subtitle}</p>
                 </div>
                 <ArrowRightIcon
                     onClick={nextProject}
@@ -64,15 +67,15 @@ export default function Project() {
             <div
                 className={`container z-0 w-full mx-auto mt-32 md:mt-20 md:min-h-min75`}>
                 <div className={`px-2 w-full h-full mt-3`}>
-                    {project.dev ? (
+                    {currProject.dev ? (
                         <DevProject
-                            project={project}
-                            key={`devproject_${project.name}`}
+                            project={currProject}
+                            key={`devproject_${currProject.name}`}
                         />
                     ) : (
                         <VideoProject
-                            project={project}
-                            key={`videoproject_${project.name}`}
+                            project={currProject}
+                            key={`videoproject_${currProject.name}`}
                         />
                     )}
                 </div>

@@ -8,7 +8,7 @@ import Image from "next/dist/client/image";
 import { redirect } from "next/dist/server/api-utils";
 
 export default function Map() {
-    const { project, changeProject } = useContext(ShowedProjectContext);
+    const { currProject, changeProject } = useContext(ShowedProjectContext);
     const { language, changeLanguage } = React.useContext(LanguageContext);
     let defaultMessage =
         language === "FR" ? "Survolez les images" : "Hover over images";
@@ -17,11 +17,6 @@ export default function Map() {
     const [projectType, setProjectType] = useState("dev");
 
     let PROJECTS = language === "FR" ? PROJECTS_FR : PROJECTS_EN;
-    React.useEffect(() => {
-        language === "FR"
-            ? changeProject(PROJECTS_FR[6])
-            : changeProject(PROJECTS_EN[6]);
-    }, []);
 
     function screenTitle(event: React.SyntheticEvent): void {
         let targetElement = (event.target as HTMLElement).hasAttribute("title")
@@ -49,7 +44,7 @@ export default function Map() {
         const newProject = PROJECTS.find(
             (ele) => ele.name === newName
         ) as Project;
-        changeProject(newProject);
+        (changeProject as any)(newProject);
     }
 
     return (
@@ -108,15 +103,15 @@ export default function Map() {
                                             title={project.title}
                                             data-subtitle={project.subtitle}
                                             data-name={project.name}>
-                                            <p className="font-sans text-2xl uppercase">
+                                            <p className="font-sans text-2xl uppercase" data-name={project.name}>
                                                 {title}
                                             </p>
-                                            <p className="font-body text-xl">
+                                            <p className="font-body text-xl" data-name={project.name}>
                                                 {subtitle}
                                             </p>
                                         </div>
                                     </a>
-                                </Link>
+                                    </Link>
                                 <div
                                     className={`flex flex-col justify-end px-2 pt-2 mb-5`}>
                                     <h3 className="uppercase md:text-lg lg:hidden text-sky-600">
@@ -163,10 +158,10 @@ export default function Map() {
                                                 title={project.title}
                                                 data-subtitle={project.subtitle}
                                                 data-name={project.name}>
-                                                <p className="font-sans text-body uppercase">
+                                                <p className="font-sans text-body uppercase" data-name={project.name}>
                                                     {title}
                                                 </p>
-                                                <p className="font-body text-sm">
+                                                <p className="font-body text-sm" data-name={project.name}>
                                                     {subtitle}
                                                 </p>
                                             </div>
